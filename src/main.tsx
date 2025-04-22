@@ -1,10 +1,14 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+
 import './styles/index.ts'
 import App from './App.tsx'
+import { CustomQueryClientProvider } from '@/app/provider/CustomQueryClientProvider.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <CustomQueryClientProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </CustomQueryClientProvider>,
 )

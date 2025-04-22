@@ -1,10 +1,10 @@
-import js from '@eslint/js'
+import typescriptEslint from '@typescript-eslint/eslint-plugin'
+import typescriptParser from '@typescript-eslint/parser'
 import eslintPluginImport from 'eslint-plugin-import'
 import eslintPluginJsxA11y from 'eslint-plugin-jsx-a11y'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
 import eslintPluginSimpleImportSort from 'eslint-plugin-simple-import-sort'
 import eslintPluginUnusedImports from 'eslint-plugin-unused-imports'
 import globals from 'globals'
@@ -12,48 +12,50 @@ import globals from 'globals'
 export default [
   { ignores: ['dist'] },
   {
-    files: ['**/*.{js,jsx}'],
+    files: ['**/*.{ts,tsx,js,jsx}'],
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+      parser: typescriptParser,
       parserOptions: {
         ecmaVersion: 'latest',
-        ecmaFeatures: { jsx: true },
         sourceType: 'module',
+        ecmaFeatures: { jsx: true },
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.es2020,
       },
     },
     settings: {
-      react: { version: '18.3' },
       'import/resolver': {
         node: {
           paths: ['src'],
-          extensions: ['.js', '.jsx'],
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        },
+        typescript: {
+          tsconfigRootDir: '__dirname',
+          project: ['./tsconfig.json', './tsconfig.node.json'],
         },
         alias: {
-          map: [['~', '@']],
-          extensions: ['.js', '.jsx'],
+          map: [['@', './src']],
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
         },
       },
+      react: { version: 'detect' },
     },
     plugins: {
-      react,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      prettier: eslintPluginPrettier,
+      '@typescript-eslint': typescriptEslint,
       'unused-imports': eslintPluginUnusedImports,
       'simple-import-sort': eslintPluginSimpleImportSort,
       import: eslintPluginImport,
       'jsx-a11y': eslintPluginJsxA11y,
+      prettier: eslintPluginPrettier,
+      react,
+      'react-hooks': reactHooks,
     },
     rules: {
-      ...js.configs.recommended.rules,
+      ...typescriptEslint.configs.recommended.rules,
       ...react.configs.recommended.rules,
-      ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
-      'react/prop-types': 'off',
-      'react/jsx-no-target-blank': 'off',
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-      'react/jsx-uses-react': 'error',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',
@@ -66,18 +68,32 @@ export default [
       ],
       'no-duplicate-imports': 'off',
       'import/newline-after-import': 'warn',
+      'import/no-named-as-default': 'off',
       'simple-import-sort/imports': [
         'warn',
         {
           groups: [
             ['^react', '^@?\\w'],
-            ['@/(.*)'],
-            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+            ['^@/(.*)'],
+            ['^\\.\\.(?!/?$)', '^\\./?$'],
             ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
           ],
         },
       ],
       'simple-import-sort/exports': 'warn',
+      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          ignoreRestSiblings: true,
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
+      'react/prop-types': 'off',
+      'react/jsx-no-target-blank': 'off',
+      'react/jsx-uses-react': 'off',
+      'react/react-in-jsx-scope': 'off',
       'prettier/prettier': [
         'error',
         {
