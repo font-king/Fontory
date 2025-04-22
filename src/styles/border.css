@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+
+@utility border-divider {
+  border: 0.1rem solid var(--color-grey-300);
+}
+@utility border-divider-r {
+  border-right: 0.1rem solid var(--color-grey-300);
+}
+@utility border-divider-b {
+  border-bottom: 0.1rem solid var(--color-grey-300);
+}
+@utility border-divider-l {
+  border-left: 0.1rem solid var(--color-grey-300);
+}
+
+@utility border-chart {
+  border-top: 0.1rem dashed var(--color-grey-300);
+}
+
+@utility border-moreview {
+  border-top: 0.1rem solid var(--color-grey-500);
+}

@@ -1,3 +1,6 @@
-import './color.css'
 import './font.css'
 import './input.css'
+import './flex.css'
+import './border.css'
+import './shadow.css'
+import './color.css'

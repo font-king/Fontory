@@ -1,5 +1,19 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: Moneygraphy;
+  src: url('/fonts/Moneygraphy.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Jalnan;
+  src: url('/fonts/JALNAN.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+
 @utility text-p1 {
   font-size: 3.2rem;
 }
@@ -23,4 +37,25 @@
 }
 @utility text-p8 {
   font-size: 1rem;
+}
+
+@theme {
+  --font-jalnan: 'Jalnan', sans-serif;
+  --font-moneygraphy: 'Moneygraphy', sans-serif;
+}
+
+@layer base {
+  html {
+    font-size: 50%;
+  }
+  @media (min-width: 1300px) {
+    html {
+      font-size: 62.5%;
+    }
+  }
+  @media (min-width: 1680px) {
+    html {
+      font-size: 80%;
+    }
+  }
 }
