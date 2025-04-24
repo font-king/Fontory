@@ -1,5 +1,4 @@
 import { Suspense } from 'react'
-import { Link } from 'react-router-dom'
 import { Loading } from './components/Loading'
 import { SideNavigationBar } from './components/SideNavigationBar'
 import { Bounce, ToastContainer } from 'react-toastify'
@@ -7,6 +6,7 @@ import { ErrorBoundary } from 'react-error-boundary'
 
 import 'react-toastify/dist/ReactToastify.css'
 import { Button } from './components/Button'
+import { Header } from './components/Header'
 
 function App() {
   return (
@@ -21,11 +21,7 @@ function App() {
       />
 
       <div className="flex-column bg-background min-h-dvh">
-        <header className="bg-white p-8 py-15 tracking-widest">
-          <h1 className="font-jalnan h1 text-primary">
-            <Link to={`/`}>Fontory</Link>
-          </h1>
-        </header>
+        <Header />
 
         <main className="font-gmarket grid flex-grow grid-cols-[1fr_4fr_1fr] gap-4 overflow-hidden px-8 py-4">
           <SideNavigationBar />
