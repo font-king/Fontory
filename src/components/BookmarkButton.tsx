@@ -31,9 +31,9 @@ export const BookmarkButton = ({ fontId, isBookmarked, isIconType = false }: Pro
   return (
     <button type="button" onClick={handleBookmark}>
       {isBookmarked ? (
-        <UnfilledBookmarkIcon width="2.8rem" height="2.8rem" />
+        <UnfilledBookmarkIcon width="2.8rem" height="2.8rem" className="cursor-pointer" />
       ) : (
-        <FilledBookmarkIcon width="2.8rem" height="2.8rem" />
+        <FilledBookmarkIcon width="2.8rem" height="2.8rem" className="cursor-pointer" />
       )}
     </button>
   )
