@@ -3,3 +3,5 @@ export type NavigationItemProps = {
   Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
   url: string
 }
+
+export type SizeType = 'sm' | 'md' | 'lg'

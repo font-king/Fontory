@@ -1,13 +1,12 @@
+import { SizeType } from '@/types/common'
 import { ButtonHTMLAttributes, PropsWithChildren } from 'react'
 
-type ButtonSize = 'lg' | 'md' | 'sm'
-
 type Props = {
-  size: ButtonSize
+  size: SizeType
   secondary?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
-const BUTTON_STYLES: Record<ButtonSize, string> = {
+const BUTTON_STYLES: Record<SizeType, string> = {
   lg: 'p3 px-[1.8rem] py-[2rem] rounded-[2rem]',
   md: 'p4 px-[1.6rem] py-[1.4rem] rounded-2xl',
   sm: 'p5 px-[1.4rem] py-[1rem] rounded-xl',
