@@ -1,11 +1,22 @@
 type Font = {
   id: number
   name: string
-  writerName: string
   example: string
   bookmarked: boolean
 }
 
-export type FontType = Font
+type Author = {
+  memberId: 1
+  writerName: string
+}
 
-export type FontWithoutProfileType = Omit<Font, 'writerName'>
+type FontMetadata = {
+  downloadCount: number
+  bookmarkCount: number
+}
+
+export type FontType = Font & Pick<Author, 'writerName'>
+
+export type FontWithoutProfileType = Font
+
+export type PopularFontListResponse = (Font & Author & FontMetadata)[]
