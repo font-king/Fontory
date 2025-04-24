@@ -1,8 +1,12 @@
-@import 'tailwindcss';
-
 @font-face {
-  font-family: Moneygraphy;
-  src: url('/fonts/Moneygraphy.ttf') format('truetype');
+  font-family: Gmarket;
+  src: url('/fonts/GmarketSansTTFBold.ttf') format('truetype');
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: Gmarket;
+  src: url('/fonts/GmarketSansTTFMedium.ttf') format('truetype');
   font-style: normal;
   font-display: swap;
 }
@@ -14,38 +18,55 @@
   font-display: swap;
 }
 
-@utility text-p1 {
-  font-size: 3.2rem;
+@utility h1 {
+  @apply text-[4.8rem] font-bold;
 }
-@utility text-p2 {
-  font-size: 2.8rem;
+@utility h2 {
+  @apply text-[3.8rem] font-bold;
 }
-@utility text-p3 {
-  font-size: 2.4rem;
+@utility h3 {
+  @apply text-[2.4rem] font-bold;
 }
-@utility text-p4 {
-  font-size: 2rem;
+@utility h4 {
+  @apply text-[2.0rem] font-bold;
 }
-@utility text-p5 {
-  font-size: 1.8rem;
+@utility h5 {
+  @apply text-[1.8rem] font-bold;
 }
-@utility text-p6 {
-  font-size: 1.6rem;
+@utility h6 {
+  @apply text-[1.6rem] font-bold;
 }
-@utility text-p7 {
-  font-size: 1.4rem;
+@utility h7 {
+  @apply text-[1.4rem] font-bold;
 }
-@utility text-p8 {
-  font-size: 1rem;
+
+@utility p1 {
+  @apply text-[3.8rem] font-medium;
+}
+@utility p2 {
+  @apply text-[2.0rem] font-medium;
+}
+@utility p3 {
+  @apply text-[1.8rem] font-medium;
+}
+@utility p4 {
+  @apply text-[1.6rem] font-medium;
+}
+@utility p5 {
+  @apply text-[1.4rem] font-medium;
+}
+@utility p6 {
+  @apply text-[1.0rem] font-medium;
 }
 
 @theme {
   --font-jalnan: 'Jalnan', sans-serif;
-  --font-moneygraphy: 'Moneygraphy', sans-serif;
+  --font-gmarket: 'Gmarket', sans-serif;
 }
 
 @layer base {
   html {
+    font-weight: 400;
     font-size: 50%;
   }
   @media (min-width: 1300px) {

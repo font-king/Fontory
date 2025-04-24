@@ -1,9 +1,7 @@
-@import 'tailwindcss';
-
 @layer base {
   input,
   textarea {
-    @apply border-none outline-none bg-transparent;
+    @apply border-none bg-transparent outline-none;
   }
   input:focus,
   textarea:focus {
