@@ -26,7 +26,7 @@ export const DownloadButton = ({ isIconType = false }: Props) => {
 
   return (
     <button type="button" onClick={handleDownload} className="cursor-pointer">
-      <DownloadIcon />
+      <DownloadIcon width="2.8rem" height="2.8rem" />
     </button>
   )
 }
