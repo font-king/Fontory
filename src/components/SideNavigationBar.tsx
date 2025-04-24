@@ -1,42 +1,72 @@
 import { Link, useLocation } from 'react-router-dom'
-import {
-  NavBookmarkIcon,
-  NavExploreIcon,
-  NavFontDesignIcon,
-  NavFontSynthesisIcon,
-  NavHomeIcon,
-  NavMyFontIcon,
-} from './icons/NavIcons'
 import { getCssVar } from '@/utils/getCssVar'
 
-const NAV_LIST = [
-  { label: '홈', Icon: NavHomeIcon, url: '/' },
-  { label: '둘러보기', Icon: NavExploreIcon, url: '/explore' },
-  { label: '폰트 제작', Icon: NavFontDesignIcon, url: '/font-design' },
-  { label: '폰트 합성', Icon: NavFontSynthesisIcon, url: '/font-synthesis' },
-  { label: '북마크', Icon: NavBookmarkIcon, url: '/bookmark' },
-  { label: '내 폰트', Icon: NavMyFontIcon, url: '/my-font' },
+import HomeIcon from '@/assets/nav-icons/Home.svg?react'
+import ExploreIcon from '@/assets/nav-icons/LightBulb.svg?react'
+import CreateFontIcon from '@/assets/nav-icons/Pencil.svg?react'
+import CombineFontIcon from '@/assets/nav-icons/Plus.svg?react'
+import MyFontIcon from '@/assets/nav-icons/User.svg?react'
+import BookmarkIcon from '@/assets/nav-icons/Bookmark.svg?react'
+import ProgressIcon from '@/assets/nav-icons/Ruler.svg?react'
+import { NavigationItemProps } from '@/types/common'
+
+const NAVIGATION_LIST = [
+  {
+    subject: '메뉴',
+    items: [
+      { label: '홈', Icon: HomeIcon, url: '/' },
+      { label: '둘러보기', Icon: ExploreIcon, url: '/explore' },
+    ],
+  },
+  {
+    subject: '작업실',
+    items: [
+      { label: '폰트 제작', Icon: CreateFontIcon, url: '/create-font' },
+      { label: '폰트 합성', Icon: CombineFontIcon, url: '/combine-font' },
+    ],
+  },
+  {
+    subject: '나만의 공간',
+    items: [
+      { label: '내 폰트', Icon: MyFontIcon, url: '/my-font' },
+      { label: '북마크', Icon: BookmarkIcon, url: '/bookmark' },
+      { label: '제작 현황', Icon: ProgressIcon, url: '/progress' },
+    ],
+  },
 ]
 
-export const SideNavigationBar = () => {
+const NavigationItem = ({ label, url, Icon }: NavigationItemProps) => {
   const { pathname } = useLocation()
 
-  return (
-    <div className="flex-column justify-center gap-12 rounded-4xl bg-blue-500 px-[2rem] py-[6rem] shadow-md">
-      {NAV_LIST.map(({ url, label, Icon }) => {
-        const isActive = url === '/' ? pathname === url : pathname.startsWith(url)
+  const isActive = url === '/' ? pathname === url : pathname.startsWith(url)
 
-        return (
-          <Link
-            key={url}
-            to={url}
-            className={`flex items-center gap-8 rounded-4xl px-3 py-6 [&>svg]:shrink-0 ${isActive ? 'bg-white' : getCssVar('--color-blue-500')}`}
-          >
-            <Icon isActive={isActive} />
-            <p className={`text-p5 ${isActive ? `text-blue-500` : 'text-white'} `}>{label}</p>
-          </Link>
-        )
-      })}
-    </div>
+  const iconFillStyle = isActive ? getCssVar('--color-light-text') : getCssVar('--color-grey')
+  const labelStyle = isActive ? 'text-light-text' : 'text-grey'
+  const activeStyle = isActive ? 'bg-primary' : ''
+
+  return (
+    <Link
+      key={url}
+      to={url}
+      className={`flex items-center gap-8 rounded-4xl px-3 py-6 [&>svg]:shrink-0 ${activeStyle}`}
+    >
+      <Icon fill={iconFillStyle} />
+      <p className={`p3 ${labelStyle}`}>{label}</p>
+    </Link>
+  )
+}
+
+export const SideNavigationBar = () => {
+  return (
+    <nav className="flex-column rounded-box gap-12 px-6 py-8">
+      {NAVIGATION_LIST.map(({ subject, items }) => (
+        <div key={subject} className="flex-column gap-8">
+          <h3 className="h6 text-black">{subject}</h3>
+          {items.map((item) => (
+            <NavigationItem key={item.url} {...item} />
+          ))}
+        </div>
+      ))}
+    </nav>
   )
 }

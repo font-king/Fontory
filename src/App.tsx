@@ -6,7 +6,7 @@ import { Bounce, ToastContainer } from 'react-toastify'
 import { ErrorBoundary } from 'react-error-boundary'
 
 import 'react-toastify/dist/ReactToastify.css'
-import { getCssVar } from './utils/getCssVar'
+import { Button } from './components/Button'
 
 function App() {
   return (
@@ -20,19 +20,24 @@ function App() {
         transition={Bounce}
       />
 
-      <div className={`flex-column min-h-dvh bg-[${getCssVar('--color-grey-200')}]`}>
-        <header className="bg-white p-12">
-          <h1 className="logo font-jalnan text-p2 text-blue-500">
-            <Link to={`/`}>FonTory</Link>
+      <div className="flex-column bg-background min-h-dvh">
+        <header className="bg-white p-8 py-15 tracking-widest">
+          <h1 className="font-jalnan h1 text-primary">
+            <Link to={`/`}>Fontory</Link>
           </h1>
         </header>
 
-        <main className="font-moneygraphy grid flex-grow grid-cols-[1fr_4fr_1fr] gap-5 overflow-hidden p-3">
+        <main className="font-gmarket grid flex-grow grid-cols-[1fr_4fr_1fr] gap-4 overflow-hidden px-8 py-4">
           <SideNavigationBar />
 
           <ErrorBoundary FallbackComponent={() => <div></div>}>
             <Suspense fallback={<Loading />}>
-              <div />
+              <div>
+                <Button size="lg" secondary>
+                  ddd
+                </Button>
+                <Button size="lg">hi</Button>
+              </div>
             </Suspense>
           </ErrorBoundary>
 
