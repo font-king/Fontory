@@ -1,33 +1,31 @@
-import { PropsWithChildren } from 'react'
+import { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 
-const Container = ({ children }: PropsWithChildren) => (
-  <section className="relative h-fit rounded-4xl bg-white p-8">{children}</section>
+type Props = {
+  title?: string
+  subTitle?: string
+  moreViewTo?: string
+  children: ReactNode
+}
+
+const Title = ({ title, subTitle, moreViewTo }: Omit<Props, 'children'>) => (
+  <div className="flex-column mb-[3.2rem] gap-5">
+    <div className="flex-between-center">
+      <h4 className="h3 text-primary">{title}</h4>
+      {moreViewTo && (
+        <Link to={moreViewTo} className="p5 text-grey border-b-divider border-b pb-1.5">
+          더보기
+        </Link>
+      )}
+    </div>
+
+    {subTitle && <h5 className="p4 text-grey">{subTitle}</h5>}
+  </div>
 )
 
-const TitleContainer = ({ children }: PropsWithChildren) => (
-  <div className="mb-[3.2rem] flex flex-col gap-5">{children}</div>
-)
-
-const Title = ({ children }: PropsWithChildren) => <h4 className="text-400">{children}</h4>
-const SubTitle = ({ children }: PropsWithChildren) => (
-  <h5 className="text-800 text-grey-500">{children}</h5>
-)
-
-const MoreViewButton = ({ to, children }: PropsWithChildren<{ to: string }>) => (
-  <Link to={to} className="text-p7 text-grey-600 pb-1.5">
+export const SectionLayout = ({ title, subTitle, moreViewTo, children }: Props) => (
+  <section className="rounded-box relative h-fit bg-white p-8">
+    {title && <Title title={title} subTitle={subTitle} moreViewTo={moreViewTo} />}
     {children}
-  </Link>
+  </section>
 )
-
-const MoreViewContainer = ({ children }: PropsWithChildren) => (
-  <div className="flex items-center justify-between pb-12">{children}</div>
-)
-
-export const SectionLayout = Object.assign(Container, {
-  Title,
-  SubTitle,
-  TitleContainer,
-  MoreViewButton,
-  MoreViewContainer,
-})

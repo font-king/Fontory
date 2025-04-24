@@ -2,12 +2,14 @@
   font-family: Gmarket;
   src: url('/fonts/GmarketSansTTFBold.ttf') format('truetype');
   font-style: normal;
+  font-weight: bold;
   font-display: swap;
 }
 @font-face {
   font-family: Gmarket;
   src: url('/fonts/GmarketSansTTFMedium.ttf') format('truetype');
   font-style: normal;
+  font-weight: medium;
   font-display: swap;
 }
 
