@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
-import './styles/index.ts'
+import './styles/index.css'
 import App from './App.tsx'
 import { CustomQueryClientProvider } from '@/app/provider/CustomQueryClientProvider.tsx'
 
