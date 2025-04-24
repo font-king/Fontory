@@ -5,8 +5,10 @@ import { Bounce, ToastContainer } from 'react-toastify'
 import { ErrorBoundary } from 'react-error-boundary'
 
 import 'react-toastify/dist/ReactToastify.css'
-import { Button } from './components/Button'
 import { Header } from './components/Header'
+import { SectionLayout } from './components/SectionLayout'
+import { FontCardWithProfile } from './components/FontCardWithProfile'
+import { FontCardWithoutProfile } from './components/FontCardWithoutProfile'
 
 function App() {
   return (
@@ -29,10 +31,27 @@ function App() {
           <ErrorBoundary FallbackComponent={() => <div></div>}>
             <Suspense fallback={<Loading />}>
               <div>
-                <Button size="lg" secondary>
-                  ddd
-                </Button>
-                <Button size="lg">hi</Button>
+                <SectionLayout title="인기폰트" subTitle="북마크" moreViewTo="/d">
+                  <FontCardWithProfile
+                    font={{
+                      id: 0,
+                      name: '모노그라피',
+                      writerName: '고로케',
+                      example:
+                        'sdafa;sfj;asjdfkasjfdksjdfksjfdksjdfksjfkjkljsfljlsjdfjslkjfjlsdfjkls',
+                      bookmarked: false,
+                    }}
+                  />
+                  <FontCardWithoutProfile
+                    font={{
+                      id: 0,
+                      name: '모노그라피',
+                      example:
+                        'sdafa;sfj;asjdfkasjfdksjdfksjfdksjdfksjfkjkljsfljlsjdfjslkjfjlsdfjkls',
+                      bookmarked: false,
+                    }}
+                  />
+                </SectionLayout>
               </div>
             </Suspense>
           </ErrorBoundary>
