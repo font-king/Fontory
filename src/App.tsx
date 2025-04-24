@@ -1,27 +1,17 @@
 import { Suspense } from 'react'
 import { Loading } from './components/Loading'
 import { SideNavigationBar } from './components/SideNavigationBar'
-import { Bounce, ToastContainer } from 'react-toastify'
 import { ErrorBoundary } from 'react-error-boundary'
 
 import 'react-toastify/dist/ReactToastify.css'
 import { Header } from './components/Header'
-import { SectionLayout } from './components/SectionLayout'
-import { FontCardWithProfile } from './components/FontCardWithProfile'
-import { FontCardWithoutProfile } from './components/FontCardWithoutProfile'
+import { RouterComponent } from './app/router/RouterComponent'
+import { Toast } from './app/provider/ToastContainer'
 
 function App() {
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        closeButton
-        autoClose={2000}
-        closeOnClick
-        pauseOnHover
-        transition={Bounce}
-      />
-
+      <Toast />
       <div className="flex-column bg-background min-h-dvh">
         <Header />
 
@@ -30,29 +20,7 @@ function App() {
 
           <ErrorBoundary FallbackComponent={() => <div></div>}>
             <Suspense fallback={<Loading />}>
-              <div>
-                <SectionLayout title="인기폰트" subTitle="북마크" moreViewTo="/d">
-                  <FontCardWithProfile
-                    font={{
-                      id: 0,
-                      name: '모노그라피',
-                      writerName: '고로케',
-                      example:
-                        'sdafa;sfj;asjdfkasjfdksjdfksjfdksjdfksjfkjkljsfljlsjdfjslkjfjlsdfjkls',
-                      bookmarked: false,
-                    }}
-                  />
-                  <FontCardWithoutProfile
-                    font={{
-                      id: 0,
-                      name: '모노그라피',
-                      example:
-                        'sdafa;sfj;asjdfkasjfdksjdfksjfdksjdfksjfkjkljsfljlsjdfjslkjfjlsdfjkls',
-                      bookmarked: false,
-                    }}
-                  />
-                </SectionLayout>
-              </div>
+              <RouterComponent />
             </Suspense>
           </ErrorBoundary>
 
