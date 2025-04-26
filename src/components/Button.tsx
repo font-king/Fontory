@@ -14,19 +14,24 @@ const BUTTON_STYLES: Record<SizeType, string> = {
 
 export const Button = ({
   size,
+  type = 'button',
   secondary = false,
   disabled = false,
   className,
   children,
   ...rest
 }: PropsWithChildren<Props>) => {
-  const buttonStyle =
-    secondary || disabled ? 'bg-grey hover:bg-[#747476]' : 'bg-primary hover:bg-black'
+  const buttonStyle = disabled
+    ? 'bg-grey cursor-not-allowed'
+    : secondary
+      ? 'bg-grey hover:bg-[#747476]'
+      : 'bg-primary hover:bg-black'
 
   return (
     <button
+      type={type}
       disabled={disabled}
-      className={`text-light-text shrink-0 transition-all ${className} ${buttonStyle} ${BUTTON_STYLES[size]}`}
+      className={`text-light-text shrink-0 cursor-pointer transition-all ${className} ${buttonStyle} ${BUTTON_STYLES[size]}`}
       {...rest}
     >
       {children}
