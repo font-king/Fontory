@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import type { FontType } from '@/types/font'
 
 import { BookmarkButton } from './BookmarkButton'
-import { DownloadButton } from '../features/download-font/ui/DownloadButton'
+import { DownloadButton } from './DownloadButton'
 import { ProfileImage } from './ProfileImage'
 
 type Props = {
@@ -31,7 +31,7 @@ export const FontCardWithProfile = ({ font }: Props) => {
       <p className="p3 text-grey grow overflow-hidden break-words">{example}</p>
 
       <div className="flex items-center gap-5 self-end">
-        <DownloadButton isIconType />
+        <DownloadButton fontId={id} fontName={fontName} isIconType />
         <BookmarkButton fontId={id} isBookmarked={isBookmarked} isIconType />
       </div>
     </Link>

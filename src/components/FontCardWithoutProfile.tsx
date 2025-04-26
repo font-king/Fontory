@@ -4,7 +4,7 @@ import CaretRight from '@/assets/icons/CaretRight.svg?react'
 import type { FontWithoutProfileType } from '@/types/font'
 
 import { BookmarkButton } from './BookmarkButton'
-import { DownloadButton } from '../features/download-font/ui/DownloadButton'
+import { DownloadButton } from './DownloadButton'
 
 type Props = {
   font: FontWithoutProfileType
@@ -28,7 +28,7 @@ export const FontCardWithoutProfile = ({ font }: Props) => {
       <p className="p3 text-grey grow overflow-hidden break-words">{example}</p>
 
       <div className="flex items-center gap-5 self-end">
-        <DownloadButton isIconType />
+        <DownloadButton fontId={id} fontName={fontName} isIconType />
         <BookmarkButton fontId={id} isBookmarked={bookmarked} isIconType />
       </div>
     </Link>

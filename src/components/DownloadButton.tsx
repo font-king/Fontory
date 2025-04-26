@@ -1,21 +1,31 @@
 import type { MouseEvent } from 'react'
 
 import DownloadIcon from '@/assets/icons/Download.svg?react'
-
-import { Button } from './Button'
-
-/**
- * @todo 다운로드 로직 추가
- */
+import { Button } from '@/components/Button'
+import { useFetchFontDownload } from '@/queries/useFont.queries'
 
 type Props = {
+  fontId: number
+  fontName: string
   isIconType?: boolean
 }
 
-export const DownloadButton = ({ isIconType = false }: Props) => {
-  const handleDownload = (event: MouseEvent<HTMLButtonElement>) => {
+export const DownloadButton = ({ fontId, fontName, isIconType = false }: Props) => {
+  const { refetch } = useFetchFontDownload({ url: { fontId } })
+
+  const handleDownload = async (event: MouseEvent<HTMLButtonElement>) => {
+    refetch()
     event.stopPropagation()
     event.preventDefault()
+    const { data: blob } = await refetch()
+    const url = window.URL.createObjectURL(blob as Blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `${fontName}.ttf`
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+    window.URL.revokeObjectURL(url)
   }
 
   if (!isIconType) {

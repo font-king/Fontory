@@ -28,3 +28,7 @@ export type ExploreFontListResponse = {
   content: (Font & Author & FontMetadata)[]
   last: boolean
 }
+
+export type DownloadFontRequest = {
+  url: { fontId: number }
+}

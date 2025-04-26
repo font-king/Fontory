@@ -1,8 +1,10 @@
-import { useSuspenseInfiniteQuery, useSuspenseQuery } from '@tanstack/react-query'
+import { useQuery, useSuspenseInfiniteQuery, useSuspenseQuery } from '@tanstack/react-query'
 import type { AxiosError } from 'axios'
 
 import { instance } from '@/app/api'
+import { instanceWithoutAuth } from '@/app/api/instanceWithoutAuth'
 import type {
+  DownloadFontRequest,
   ExploreFontListRequest,
   ExploreFontListResponse,
   PopularFontListResponse,
@@ -10,6 +12,7 @@ import type {
 
 export const fontQueryKeys = {
   all: ['fonts'],
+  downloadFont: (fontId: number) => [...fontQueryKeys.all, 'download', fontId],
   popularFontList: () => [...fontQueryKeys.all, 'popular'],
   exploreList: (sortBy: string, keyword: string) => [
     ...fontQueryKeys.all,
@@ -18,12 +21,6 @@ export const fontQueryKeys = {
     keyword,
   ],
 } as const
-
-export const useFetchPopularFontList = () =>
-  useSuspenseQuery<PopularFontListResponse, AxiosError>({
-    queryKey: fontQueryKeys.popularFontList(),
-    queryFn: () => instance.get('/fonts/popular'),
-  })
 
 const ENDPOINTS = {
   exploreList: ({ page, sortBy, keyword }: ExploreFontListRequest['url']) => {
@@ -38,6 +35,12 @@ const ENDPOINTS = {
   },
 }
 
+export const useFetchPopularFontList = () =>
+  useSuspenseQuery<PopularFontListResponse, AxiosError>({
+    queryKey: fontQueryKeys.popularFontList(),
+    queryFn: () => instance.get('/fonts/popular'),
+  })
+
 export const useFetchExploreFontList = ({ url }: ExploreFontListRequest) =>
   useSuspenseInfiniteQuery<ExploreFontListResponse, AxiosError>({
     queryKey: fontQueryKeys.exploreList(url.sortBy, url.keyword),
@@ -49,4 +52,14 @@ export const useFetchExploreFontList = ({ url }: ExploreFontListRequest) =>
     getNextPageParam: (lastPage, allPages) => (lastPage.last ? undefined : allPages.length),
     gcTime: 0,
     staleTime: 0,
+  })
+
+export const useFetchFontDownload = ({ url }: DownloadFontRequest) =>
+  useQuery<Blob, AxiosError>({
+    queryKey: fontQueryKeys.downloadFont(url.fontId),
+    queryFn: () =>
+      instanceWithoutAuth.get(`/fonts/${url.fontId}/download`, {
+        responseType: 'blob',
+      }),
+    enabled: false,
   })
