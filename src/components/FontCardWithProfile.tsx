@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import type { FontType } from '@/types/font'
 
 import { BookmarkButton } from './BookmarkButton'
-import { DownloadButton } from './DownloadButton'
+import { DownloadButton } from '../features/download-font/ui/DownloadButton'
 import { ProfileImage } from './ProfileImage'
 
 type Props = {

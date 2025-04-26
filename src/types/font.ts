@@ -20,3 +20,11 @@ export type FontType = Font & Pick<Author, 'writerName'>
 export type FontWithoutProfileType = Font
 
 export type PopularFontListResponse = (Font & Author & FontMetadata)[]
+
+export type ExploreFontListRequest = {
+  url: { page?: unknown; sortBy: string; keyword: string }
+}
+export type ExploreFontListResponse = {
+  content: (Font & Author & FontMetadata)[]
+  last: boolean
+}

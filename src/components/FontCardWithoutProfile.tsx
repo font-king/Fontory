@@ -4,7 +4,7 @@ import CaretRight from '@/assets/icons/CaretRight.svg?react'
 import type { FontWithoutProfileType } from '@/types/font'
 
 import { BookmarkButton } from './BookmarkButton'
-import { DownloadButton } from './DownloadButton'
+import { DownloadButton } from '../features/download-font/ui/DownloadButton'
 
 type Props = {
   font: FontWithoutProfileType
