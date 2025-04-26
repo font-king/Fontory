@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
+
+import type { FontType } from '@/types/font'
+
 import { BookmarkButton } from './BookmarkButton'
 import { DownloadButton } from './DownloadButton'
 import { ProfileImage } from './ProfileImage'
-import { FontType } from '@/types/font'
 
 type Props = {
   font: FontType

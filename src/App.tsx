@@ -1,12 +1,13 @@
 import { Suspense } from 'react'
-import { Loading } from './components/Loading'
-import { SideNavigationBar } from './components/SideNavigationBar'
 import { ErrorBoundary } from 'react-error-boundary'
 
-import 'react-toastify/dist/ReactToastify.css'
-import { Header } from './components/Header'
-import { RouterComponent } from './app/router/RouterComponent'
 import { Toast } from './app/provider/ToastContainer'
+import { RouterComponent } from './app/router/RouterComponent'
+import { Header } from './components/Header'
+import { Loading } from './components/Loading'
+import { SideNavigationBar } from './components/SideNavigationBar'
+
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (

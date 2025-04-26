@@ -1,14 +1,14 @@
 import { Link, useLocation } from 'react-router-dom'
-import { getCssVar } from '@/utils/getCssVar'
 
+import BookmarkIcon from '@/assets/nav-icons/Bookmark.svg?react'
 import HomeIcon from '@/assets/nav-icons/Home.svg?react'
 import ExploreIcon from '@/assets/nav-icons/LightBulb.svg?react'
 import CreateFontIcon from '@/assets/nav-icons/Pencil.svg?react'
 import CombineFontIcon from '@/assets/nav-icons/Plus.svg?react'
-import MyFontIcon from '@/assets/nav-icons/User.svg?react'
-import BookmarkIcon from '@/assets/nav-icons/Bookmark.svg?react'
 import ProgressIcon from '@/assets/nav-icons/Ruler.svg?react'
-import { NavigationItemProps } from '@/types/common'
+import MyFontIcon from '@/assets/nav-icons/User.svg?react'
+import type { NavigationItemProps } from '@/types/common'
+import { getCssVar } from '@/utils/getCssVar'
 
 const NAVIGATION_LIST = [
   {

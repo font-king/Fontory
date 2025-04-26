@@ -1,5 +1,6 @@
-import { SizeType } from '@/types/common'
-import { ButtonHTMLAttributes, PropsWithChildren } from 'react'
+import type { ButtonHTMLAttributes, PropsWithChildren } from 'react'
+
+import type { SizeType } from '@/types/common'
 
 type Props = {
   size: SizeType

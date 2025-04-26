@@ -1,8 +1,9 @@
-import { MouseEvent } from 'react'
-import { Button } from './Button'
+import type { MouseEvent } from 'react'
 
 import FilledBookmarkIcon from '@/assets/icons/FilledBookmark.svg?react'
 import UnfilledBookmarkIcon from '@/assets/icons/UnfilledBookmark.svg?react'
+
+import { Button } from './Button'
 
 /**
  * @todo 북마크 로직 추가

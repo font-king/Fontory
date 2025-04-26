@@ -1,6 +1,7 @@
-import { useModalActions, useModalState } from '@/stores/modal.store'
-import { PropsWithChildren, ReactNode } from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 import ReactDOM from 'react-dom'
+
+import { useModalActions, useModalState } from '@/stores/modal.store'
 
 type Props = {
   id: string

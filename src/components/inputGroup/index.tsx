@@ -16,6 +16,7 @@ export const useInputGroupContext = () => {
 
 type ContainerProps = {
   section: string
+  className?: string
 }
 
 type InputGroupType = typeof Container & {
@@ -24,10 +25,10 @@ type InputGroupType = typeof Container & {
   Label: typeof Label
 }
 
-const Container = ({ section, children }: PropsWithChildren<ContainerProps>) => {
+const Container = ({ section, className, children }: PropsWithChildren<ContainerProps>) => {
   return (
     <InputGroupContext.Provider value={section}>
-      <div className="flex-column gap-5">{children}</div>
+      <div className={`flex-column gap-5 ${className}`}>{children}</div>
     </InputGroupContext.Provider>
   )
 }

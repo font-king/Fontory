@@ -1,8 +1,10 @@
-import { FontWithoutProfileType } from '@/types/font'
 import { Link } from 'react-router-dom'
+
+import CaretRight from '@/assets/icons/CaretRight.svg?react'
+import type { FontWithoutProfileType } from '@/types/font'
+
 import { BookmarkButton } from './BookmarkButton'
 import { DownloadButton } from './DownloadButton'
-import CaretRight from '@/assets/icons/CaretRight.svg?react'
 
 type Props = {
   font: FontWithoutProfileType

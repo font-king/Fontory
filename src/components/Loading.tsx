@@ -1,5 +1,6 @@
-import { getCssVar } from '@/utils/getCssVar'
 import { SyncLoader } from 'react-spinners'
+
+import { getCssVar } from '@/utils/getCssVar'
 
 export const Loading = () => {
   return (

@@ -1,6 +1,8 @@
-import { MouseEvent } from 'react'
-import { Button } from './Button'
+import type { MouseEvent } from 'react'
+
 import DownloadIcon from '@/assets/icons/Download.svg?react'
+
+import { Button } from './Button'
 
 /**
  * @todo 다운로드 로직 추가

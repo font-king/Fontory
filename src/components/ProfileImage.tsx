@@ -1,5 +1,5 @@
 import ProfileIcon from '@/assets/icons/Profile.svg?react'
-import { SizeType } from '@/types/common'
+import type { SizeType } from '@/types/common'
 
 type Props = {
   size: SizeType

@@ -1,7 +1,8 @@
-import { instance } from '@/app/api'
-import { PopularFontListResponse } from '@/types/font'
 import { useSuspenseQuery } from '@tanstack/react-query'
-import { AxiosError } from 'axios'
+import type { AxiosError } from 'axios'
+
+import { instance } from '@/app/api'
+import type { PopularFontListResponse } from '@/types/font'
 
 export const fontQueryKeys = {
   all: ['fonts'],
