@@ -37,7 +37,16 @@ export const useFontNameDuplicateCheck = (section: string) => {
         onSettled: () => completeChecking(),
       },
     )
-  }, [checkFontNameDuplicate, section, setError])
+  }, [
+    checkFontNameDuplicate,
+    completeChecking,
+    getValues,
+    section,
+    setError,
+    setVerificationMessage,
+    startChecking,
+    updateVerificationStatus,
+  ])
 
   return { checkDuplicate }
 }
