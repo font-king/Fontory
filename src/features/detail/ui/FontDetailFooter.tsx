@@ -18,7 +18,7 @@ export const FontDetailFooter = () => {
         수정하기
       </Button>
 
-      <Button size="lg" onClick={handleDeleteFont}>
+      <Button size="lg" onClick={handleDeleteFont} className="bg-warn text-white hover:bg-red-500">
         삭제하기
       </Button>
 
