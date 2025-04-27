@@ -3,7 +3,7 @@ import { FontProgressTable } from '@/features/progress/ui/FontProgressTable'
 
 export const FontProgress = () => {
   return (
-    <SectionLayout title="폰트 제작 상황">
+    <SectionLayout title="폰트 제작 현황">
       <FontProgressTable />
     </SectionLayout>
   )
