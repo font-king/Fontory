@@ -5,7 +5,6 @@ import { InputGroup } from '@/components/inputGroup'
 
 import { FONT_FORM_FIELDS } from '../config/schema'
 import type { CreateFontFormType } from '../model/createFont.type'
-import { useVerificationStatus } from '../model/fontNameVerification.store'
 import { useCreateFont } from '../model/useCreateFont'
 
 import { FontNameFieldWithDuplicateCheck } from './FontNameFieldWithDuplicateCheck'
@@ -13,7 +12,7 @@ import { FontTemplateDownload } from './FontTemplateDownload'
 import { FontTemplateUpload } from './FontTemplateUpload'
 
 export const CreateFontForm = () => {
-  const { isVerified, isDirty } = useVerificationStatus()
+  // const { isVerified, isDirty } = useVerificationStatus()
   const { handleCreateFont } = useCreateFont()
   const {
     handleSubmit,

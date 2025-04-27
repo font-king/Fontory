@@ -5,9 +5,8 @@ import { Toast } from './app/provider/ToastContainer'
 import { RouterComponent } from './app/router/RouterComponent'
 import { Header } from './components/Header'
 import { Loading } from './components/Loading'
-import { ProfileCard } from './components/ProfileCard'
-import { ProgressCard } from './components/ProgressCard'
 import { SideNavigationBar } from './components/SideNavigationBar'
+import { SideProfileSection } from './features/home/ui/SideProfileSection'
 
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -29,10 +28,7 @@ function App() {
 
           <ErrorBoundary FallbackComponent={() => <div></div>}>
             <Suspense fallback={<Loading />}>
-              <div className="flex-column gap-10">
-                <ProfileCard />
-                <ProgressCard />
-              </div>
+              <SideProfileSection />
             </Suspense>
           </ErrorBoundary>
         </main>
