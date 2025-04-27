@@ -9,6 +9,8 @@ import type { AxiosError } from 'axios'
 import { instance } from '@/app/api'
 import { instanceWithoutAuth } from '@/app/api/instanceWithoutAuth'
 import type {
+  BookmarkFontListRequest,
+  BookmarkFontListResponse,
   CustomFontListRequest,
   CustomFontListResponse,
   DownloadFontRequest,
@@ -34,6 +36,7 @@ export const fontQueryKeys = {
 
   exploreList: (sortBy: string, keyword: string) =>
     [...fontQueryKeys.all, 'explore', sortBy, keyword] as const,
+  bookmarkList: (keyword: string) => [...fontQueryKeys.all, 'bookmark', keyword] as const,
   customList: (keyword: string) => [...fontQueryKeys.all, 'custom', keyword] as const,
 }
 
@@ -46,6 +49,16 @@ const ENDPOINTS = {
     if (keyword) params.set('keyword', keyword)
 
     const queryString = params.toString()
+    return queryString ? `${baseUrl}&${queryString}` : baseUrl
+  },
+
+  bookmarkList: ({ page, keyword }: BookmarkFontListRequest['url']) => {
+    const baseUrl = `/bookmarks?page=${page}&size=20`
+    const searchParams = new URLSearchParams()
+
+    if (keyword) searchParams.append('keyword', keyword)
+
+    const queryString = searchParams.toString()
     return queryString ? `${baseUrl}&${queryString}` : baseUrl
   },
 
@@ -73,6 +86,17 @@ export const useFetchExploreFontList = ({ url }: ExploreFontListRequest) =>
       instance.get(
         ENDPOINTS.exploreList({ page: pageParam, sortBy: url.sortBy, keyword: url.keyword }),
       ),
+    initialPageParam: 0,
+    getNextPageParam: (lastPage, allPages) => (lastPage.last ? undefined : allPages.length),
+    gcTime: 0,
+    staleTime: 0,
+  })
+
+export const useFetchBookmarkFontList = ({ url }: BookmarkFontListRequest) =>
+  useSuspenseInfiniteQuery<BookmarkFontListResponse, AxiosError>({
+    queryKey: fontQueryKeys.bookmarkList(url.keyword),
+    queryFn: ({ pageParam = 0 }) =>
+      instance.get(ENDPOINTS.bookmarkList({ page: pageParam, keyword: url.keyword })),
     initialPageParam: 0,
     getNextPageParam: (lastPage, allPages) => (lastPage.last ? undefined : allPages.length),
     gcTime: 0,

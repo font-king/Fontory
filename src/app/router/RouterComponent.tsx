@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
+import { Bookmark } from '@/pages/Bookmark'
 import { CreateFont } from '@/pages/CreateFont'
 import { Explore } from '@/pages/Explore'
 import { FontDetail } from '@/pages/FontDetail'
@@ -17,6 +18,7 @@ export const RouterComponent = () => {
       <Route path="/detail/:id" element={<FontDetail />} />
       <Route path="/progress" element={<FontProgress />} />
       <Route path="/my-font" element={<MyFont />} />
+      <Route path="/bookmark" element={<Bookmark />} />
       <Route path="/my-font/custom-font" element={<MyCustomFont />} />
     </Routes>
   )

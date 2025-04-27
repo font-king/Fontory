@@ -36,6 +36,14 @@ export type ExploreFontListResponse = {
   last: boolean
 }
 
+export type BookmarkFontListRequest = {
+  url: { page?: unknown; keyword: string }
+}
+export type BookmarkFontListResponse = {
+  content: FontDetail[]
+  last: boolean
+}
+
 export type CustomFontListRequest = {
   url: { page?: unknown; keyword: string }
 }
