@@ -5,6 +5,7 @@ import { Toast } from './app/provider/ToastContainer'
 import { RouterComponent } from './app/router/RouterComponent'
 import { Header } from './components/Header'
 import { Loading } from './components/Loading'
+import { ProgressCard } from './components/ProgressCard'
 import { SideNavigationBar } from './components/SideNavigationBar'
 
 import 'react-toastify/dist/ReactToastify.css'
@@ -25,7 +26,13 @@ function App() {
             </Suspense>
           </ErrorBoundary>
 
-          <div>3</div>
+          <ErrorBoundary FallbackComponent={() => <div></div>}>
+            <Suspense fallback={<Loading />}>
+              <div>
+                <ProgressCard />
+              </div>
+            </Suspense>
+          </ErrorBoundary>
         </main>
       </div>
     </>

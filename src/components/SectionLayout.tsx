@@ -13,7 +13,10 @@ const Title = ({ title, subTitle, moreViewTo }: Omit<Props, 'children'>) => (
     <div className="flex-between-center">
       <h4 className="h3 text-primary">{title}</h4>
       {moreViewTo && (
-        <Link to={moreViewTo} className="p5 text-grey border-b-divider border-b pb-1.5">
+        <Link
+          to={moreViewTo}
+          className="p5 text-grey border-b-lightgrey ml-2 shrink-0 border-b pb-0.5"
+        >
           더보기
         </Link>
       )}
