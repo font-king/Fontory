@@ -8,16 +8,18 @@ export const useCreateFont = () => {
   const { mutate: createFont } = useCreateFontMutation()
 
   const handleCreateFont = (formData: CreateFontFormType) => {
-    const sendingForm = {
-      fontCreateDTO: {
+    const sendForm = new FormData()
+    sendForm.append(
+      'fontCreateDTO',
+      JSON.stringify({
         name: formData.name,
         example: formData.example,
-      },
-      file: new Array(formData.file),
-    }
+      }),
+    )
+    sendForm.append('file', formData.file)
 
     createFont(
-      { body: sendingForm },
+      { body: sendForm },
       {
         onSuccess: () => toast.success('폰트 제작 요청이 되었습니다.'),
         onError: () => toast.error('폰트 제작 요청에 실패하였습니다.'),

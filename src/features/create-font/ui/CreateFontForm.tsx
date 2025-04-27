@@ -21,7 +21,8 @@ export const CreateFontForm = () => {
   } = useFormContext<CreateFontFormType>()
 
   const currentFile = useWatch({ name: FONT_FORM_FIELDS.file.section })
-  const isSubmitEnabled = !!currentFile && isValid && isVerified && !isDirty
+  const isSubmitEnabled = !!currentFile && isValid
+  // const isSubmitEnabled = !!currentFile && isValid && isVerified && !isDirty
 
   return (
     <form className="flex-column gap-28" onSubmit={handleSubmit(handleCreateFont)}>

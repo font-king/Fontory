@@ -84,6 +84,7 @@ export class HttpClient {
 
       try {
         // 임시 토큰 사용
+        console.log('토큰 변경')
         this.failedQueue.forEach(({ resolve, reject, config }) => {
           config.headers.Authorization = import.meta.env.VITE_PUBLIC_PROVIDE
           this.client(config).then(resolve).catch(reject)

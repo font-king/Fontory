@@ -5,13 +5,7 @@ export type CreateFontFormType = {
 }
 
 export type CreateFontRequest = {
-  body: {
-    fontCreateDTO: {
-      name: string
-      example: string
-    }
-    file: File[]
-  }
+  body: FormData
 }
 
 export type CheckFontNameDuplicateRequest = {

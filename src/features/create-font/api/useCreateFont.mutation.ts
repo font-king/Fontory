@@ -10,7 +10,12 @@ export const useCreateFontMutation = () => {
   const queryClient = useQueryClient()
 
   return useMutation<unknown, AxiosError<unknown>, CreateFontRequest>({
-    mutationFn: ({ body }) => instance.post(`/fonts`, body),
+    mutationFn: ({ body }) =>
+      instance.post(`/fonts`, body, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: fontQueryKeys.all }),
   })
 }
