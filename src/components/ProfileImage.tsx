@@ -7,8 +7,8 @@ type Props = {
 
 const PROFILE_SIZE = {
   sm: { size: '4.48rem', padding: '5.6rem' },
-  md: { size: '8rem', padding: '1rem' },
-  lg: { size: '1.44rem', padding: '1.8rem' },
+  md: { size: '8rem', padding: '10rem' },
+  lg: { size: '14.4rem', padding: '18rem' },
 }
 
 export const ProfileImage = ({ size }: Props) => {

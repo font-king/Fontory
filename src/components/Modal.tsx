@@ -22,7 +22,7 @@ export const Modal = ({ id, title, onSubmit, children }: Props) => {
 
   const { closeModal } = useModalActions()
 
-  const isModalOpen = modalState[id].isOpen
+  const isModalOpen = modalState[id]?.isOpen
 
   if (!isModalOpen) return null
 
@@ -35,11 +35,11 @@ export const Modal = ({ id, title, onSubmit, children }: Props) => {
           className="flex-column rounded-box absolute z-50 min-w-5xl gap-14 bg-white px-16 py-20"
         >
           <div className="flex-between-center">
-            <button type="button" onClick={closeModal} className="p3 text-grey p-1">
+            <button type="button" onClick={closeModal} className="p3 text-grey cursor-pointer p-1">
               취소
             </button>
             <h5 className="h2 text-primary">{title}</h5>
-            <button type="submit" className="p3 text-grey p-1">
+            <button type="submit" className="p3 text-grey cursor-pointer p-1">
               완료
             </button>
           </div>

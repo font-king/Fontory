@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button'
 import { InputGroup } from '@/components/inputGroup'
 
-import { FONT_FORM_FIELDS } from '../config/schema.constant'
+import { FONT_FORM_FIELDS } from '../config/schema'
 import {
   useVerificationCheckingState,
   useVerificationMessage,

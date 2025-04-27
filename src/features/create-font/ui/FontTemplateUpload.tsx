@@ -3,7 +3,7 @@ import { useFormContext, useWatch } from 'react-hook-form'
 
 import { Button } from '@/components/Button'
 
-import { FONT_FORM_FIELDS } from '../config/schema.constant'
+import { FONT_FORM_FIELDS } from '../config/schema'
 import { useFileUpload } from '../model/useFileUploader'
 
 export const FontTemplateUpload = () => {

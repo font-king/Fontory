@@ -1,7 +1,7 @@
 import { FormProvider } from 'react-hook-form'
 
 import { SectionLayout } from '@/components/SectionLayout'
-import { fontFormSchema } from '@/features/create-font/config/schema.constant'
+import { fontFormSchema } from '@/features/create-font/config/schema'
 import type { CreateFontFormType } from '@/features/create-font/model/createFont.type'
 import { CreateFontForm } from '@/features/create-font/ui/CreateFontForm'
 import { useCustomForm } from '@/hooks/useCustomForm'

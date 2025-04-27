@@ -15,20 +15,38 @@ type FontMetadata = {
   bookmarkCount: number
 }
 
+type FontDetail = Font & Author & FontMetadata
+
 export type FontType = Font & Pick<Author, 'writerName'>
 
 export type FontWithoutProfileType = Font
 
-export type PopularFontListResponse = (Font & Author & FontMetadata)[]
+export type PopularFontListResponse = FontDetail[]
 
 export type ExploreFontListRequest = {
   url: { page?: unknown; sortBy: string; keyword: string }
 }
 export type ExploreFontListResponse = {
-  content: (Font & Author & FontMetadata)[]
+  content: FontDetail[]
   last: boolean
 }
 
 export type DownloadFontRequest = {
   url: { fontId: number }
+}
+
+export type DeleteFontRequest = {
+  url: { fontId: number }
+}
+
+export type FontDetailRequest = {
+  url: { fontId: number }
+}
+export type FontDetailResponse = FontDetail
+export type RecommendListResponse = FontDetail[]
+
+export type EditFontForm = Pick<Font, 'name' | 'example'>
+export type EditFontRequest = {
+  url: { fontId: number }
+  body: EditFontForm
 }

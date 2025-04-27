@@ -1,4 +1,9 @@
-import { useQuery, useSuspenseInfiniteQuery, useSuspenseQuery } from '@tanstack/react-query'
+import {
+  useQuery,
+  useSuspenseInfiniteQuery,
+  useSuspenseQueries,
+  useSuspenseQuery,
+} from '@tanstack/react-query'
 import type { AxiosError } from 'axios'
 
 import { instance } from '@/app/api'
@@ -7,13 +12,20 @@ import type {
   DownloadFontRequest,
   ExploreFontListRequest,
   ExploreFontListResponse,
+  FontDetailRequest,
+  FontDetailResponse,
   PopularFontListResponse,
+  RecommendListResponse,
 } from '@/types/font'
 
 export const fontQueryKeys = {
   all: ['fonts'],
+  detail: (fontId: number) => [...fontQueryKeys.all, 'detail', fontId],
   downloadFont: (fontId: number) => [...fontQueryKeys.all, 'download', fontId],
+
   popularFontList: () => [...fontQueryKeys.all, 'popular'],
+  recommendList: (fontId: number) => [...fontQueryKeys.all, 'recommend', fontId],
+
   exploreList: (sortBy: string, keyword: string) => [
     ...fontQueryKeys.all,
     'explore',
@@ -62,4 +74,18 @@ export const useFetchFontDownload = ({ url }: DownloadFontRequest) =>
         responseType: 'blob',
       }),
     enabled: false,
+  })
+
+export const useFetchFontDetail = ({ url }: FontDetailRequest) =>
+  useSuspenseQueries({
+    queries: [
+      {
+        queryKey: fontQueryKeys.detail(url.fontId),
+        queryFn: () => instance.get<FontDetailResponse>(`/fonts/${url.fontId}`),
+      },
+      {
+        queryKey: fontQueryKeys.recommendList(url.fontId),
+        queryFn: () => instance.get<RecommendListResponse>(`/fonts/${url.fontId}/others`),
+      },
+    ],
   })

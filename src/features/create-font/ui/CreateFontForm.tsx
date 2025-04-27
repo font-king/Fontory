@@ -3,7 +3,7 @@ import { useFormContext, useWatch } from 'react-hook-form'
 import { Button } from '@/components/Button'
 import { InputGroup } from '@/components/inputGroup'
 
-import { FONT_FORM_FIELDS } from '../config/schema.constant'
+import { FONT_FORM_FIELDS } from '../config/schema'
 import type { CreateFontFormType } from '../model/createFont.type'
 import { useVerificationStatus } from '../model/fontNameVerification.store'
 import { useCreateFont } from '../model/useCreateFont'

@@ -1,9 +1,9 @@
 import { create } from 'zustand'
 
 type ModalStore = {
-  modals: Record<string, { isOpen: boolean; label: string }>
+  modals: Record<string, { isOpen: boolean }>
   actions: {
-    openModal: (id: string, label: string) => void
+    openModal: (id: string) => void
     closeModal: () => void
   }
 }
@@ -11,9 +11,9 @@ type ModalStore = {
 export const useModalStore = create<ModalStore>((set) => ({
   modals: {},
   actions: {
-    openModal: (id, label) =>
+    openModal: (id) =>
       set((state) => ({
-        modals: { ...state.modals, [id]: { isOpen: true, label } },
+        modals: { ...state.modals, [id]: { isOpen: true } },
       })),
     closeModal: () => set({ modals: {} }),
   },

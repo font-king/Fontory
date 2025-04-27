@@ -16,7 +16,7 @@ function App() {
       <div className="flex-column bg-background min-h-dvh">
         <Header />
 
-        <main className="font-gmarket grid flex-grow grid-cols-[1fr_4fr_1fr] gap-4 overflow-hidden px-8 py-4">
+        <main className="grid flex-grow grid-cols-[1fr_4fr_1fr] gap-4 overflow-hidden px-8 py-4">
           <SideNavigationBar />
 
           <ErrorBoundary FallbackComponent={() => <div></div>}>
