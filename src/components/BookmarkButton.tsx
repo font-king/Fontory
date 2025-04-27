@@ -1,13 +1,8 @@
-import type { MouseEvent } from 'react'
-
 import FilledBookmarkIcon from '@/assets/icons/FilledBookmark.svg?react'
 import UnfilledBookmarkIcon from '@/assets/icons/UnfilledBookmark.svg?react'
+import { useBookmark } from '@/hooks/useBookmark'
 
 import { Button } from './Button'
-
-/**
- * @todo 북마크 로직 추가
- */
 
 type Props = {
   fontId: number
@@ -16,10 +11,7 @@ type Props = {
 }
 
 export const BookmarkButton = ({ fontId, isBookmarked, isIconType = false }: Props) => {
-  const handleBookmark = (event: MouseEvent<HTMLButtonElement>) => {
-    event.stopPropagation()
-    event.preventDefault()
-  }
+  const { handleBookmark } = useBookmark(fontId, isBookmarked)
 
   if (!isIconType) {
     return (
