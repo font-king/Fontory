@@ -1,6 +1,6 @@
 import { SectionLayout } from '@/components/SectionLayout'
-import { CustomFontList } from '@/features/my-font/CustomFontList'
 import { FontRankingChart } from '@/features/my-font/ui/FontRakingChart'
+import { FontRankingList } from '@/features/my-font/ui/FontRankingList'
 import { useFetchMyFontRanking } from '@/queries/useFont.queries'
 
 export const MyFont = () => {
@@ -16,7 +16,7 @@ export const MyFont = () => {
       </SectionLayout>
 
       <SectionLayout title="내가 제작한 폰트" moreViewTo="/my-font/custom-font">
-        <CustomFontList fonts={fonts} />
+        <FontRankingList fonts={fonts} />
       </SectionLayout>
     </div>
   )

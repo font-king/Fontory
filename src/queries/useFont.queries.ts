@@ -9,6 +9,8 @@ import type { AxiosError } from 'axios'
 import { instance } from '@/app/api'
 import { instanceWithoutAuth } from '@/app/api/instanceWithoutAuth'
 import type {
+  CustomFontListRequest,
+  CustomFontListResponse,
   DownloadFontRequest,
   ExploreFontListRequest,
   ExploreFontListResponse,
@@ -25,13 +27,14 @@ export const fontQueryKeys = {
   detail: (fontId: number) => [...fontQueryKeys.all, 'detail', fontId] as const,
   downloadFont: (fontId: number) => [...fontQueryKeys.all, 'download', fontId] as const,
   progress: () => [...fontQueryKeys.all, 'progress'] as const,
-  fontRanking: () => [...fontQueryKeys.all, 'ranking'],
+  fontRanking: () => [...fontQueryKeys.all, 'ranking'] as const,
 
   popularFontList: () => [...fontQueryKeys.all, 'popular'] as const,
   recommendList: (fontId: number) => [...fontQueryKeys.all, 'recommend', fontId] as const,
 
   exploreList: (sortBy: string, keyword: string) =>
     [...fontQueryKeys.all, 'explore', sortBy, keyword] as const,
+  customList: (keyword: string) => [...fontQueryKeys.all, 'custom', keyword] as const,
 }
 
 const ENDPOINTS = {
@@ -43,6 +46,16 @@ const ENDPOINTS = {
     if (keyword) params.set('keyword', keyword)
 
     const queryString = params.toString()
+    return queryString ? `${baseUrl}&${queryString}` : baseUrl
+  },
+
+  myCustomFontList: ({ page, keyword }: CustomFontListRequest['url']) => {
+    const baseUrl = `/fonts/members?page=${page}&size=20`
+    const searchParams = new URLSearchParams()
+
+    if (keyword) searchParams.append('keyword', keyword)
+
+    const queryString = searchParams.toString()
     return queryString ? `${baseUrl}&${queryString}` : baseUrl
   },
 }
@@ -60,6 +73,17 @@ export const useFetchExploreFontList = ({ url }: ExploreFontListRequest) =>
       instance.get(
         ENDPOINTS.exploreList({ page: pageParam, sortBy: url.sortBy, keyword: url.keyword }),
       ),
+    initialPageParam: 0,
+    getNextPageParam: (lastPage, allPages) => (lastPage.last ? undefined : allPages.length),
+    gcTime: 0,
+    staleTime: 0,
+  })
+
+export const useFetchCustomFontList = ({ url }: CustomFontListRequest) =>
+  useSuspenseInfiniteQuery<CustomFontListResponse, AxiosError>({
+    queryKey: fontQueryKeys.customList(url.keyword),
+    queryFn: ({ pageParam = 0 }) =>
+      instance.get(ENDPOINTS.myCustomFontList({ page: pageParam, keyword: url.keyword })),
     initialPageParam: 0,
     getNextPageParam: (lastPage, allPages) => (lastPage.last ? undefined : allPages.length),
     gcTime: 0,

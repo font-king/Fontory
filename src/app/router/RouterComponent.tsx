@@ -5,6 +5,7 @@ import { Explore } from '@/pages/Explore'
 import { FontDetail } from '@/pages/FontDetail'
 import { FontProgress } from '@/pages/FontProgress'
 import { Home } from '@/pages/Home'
+import { MyCustomFont } from '@/pages/MyCustomFont'
 import { MyFont } from '@/pages/MyFont'
 
 export const RouterComponent = () => {
@@ -16,6 +17,7 @@ export const RouterComponent = () => {
       <Route path="/detail/:id" element={<FontDetail />} />
       <Route path="/progress" element={<FontProgress />} />
       <Route path="/my-font" element={<MyFont />} />
+      <Route path="/my-font/custom-font" element={<MyCustomFont />} />
     </Routes>
   )
 }

@@ -6,7 +6,7 @@ type Props = {
   fonts: FontRankingResponse
 }
 
-export const CustomFontList = ({ fonts }: Props) => {
+export const FontRankingList = ({ fonts }: Props) => {
   if (!fonts || !fonts.length) return <EmptyMessage message="아직 등록된 폰트가 없습니다." />
 
   return (
