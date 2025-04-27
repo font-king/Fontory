@@ -1,6 +1,6 @@
 @layer components {
   .table-cell {
-    @apply p4 border-divider border p-4;
+    @apply p4 border-lightgrey border p-4;
   }
 
   .striped-row {

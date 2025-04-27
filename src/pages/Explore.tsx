@@ -6,7 +6,7 @@ import { FilterList } from '@/features/explore/ui/FilterList'
 export const Explore = () => {
   return (
     <SectionLayout>
-      <section className="border-divider mb-12 grid grid-cols-2 items-center overflow-x-hidden border-b pb-5">
+      <section className="border-lightgrey mb-12 grid grid-cols-2 items-center overflow-x-hidden border-b pb-5">
         <FilterList />
         <SearchBar />
       </section>

@@ -57,3 +57,5 @@ export type EditFontRequest = {
 }
 
 export type FontProgressResponse = (Pick<Font, 'id' | 'name'> & Progress)[]
+
+export type FontRankingResponse = (FontMetadata & Omit<Font, 'writerName'>)[]

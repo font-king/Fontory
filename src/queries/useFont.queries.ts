@@ -15,6 +15,7 @@ import type {
   FontDetailRequest,
   FontDetailResponse,
   FontProgressResponse,
+  FontRankingResponse,
   PopularFontListResponse,
   RecommendListResponse,
 } from '@/types/font'
@@ -24,6 +25,7 @@ export const fontQueryKeys = {
   detail: (fontId: number) => [...fontQueryKeys.all, 'detail', fontId] as const,
   downloadFont: (fontId: number) => [...fontQueryKeys.all, 'download', fontId] as const,
   progress: () => [...fontQueryKeys.all, 'progress'] as const,
+  fontRanking: () => [...fontQueryKeys.all, 'ranking'],
 
   popularFontList: () => [...fontQueryKeys.all, 'popular'] as const,
   recommendList: (fontId: number) => [...fontQueryKeys.all, 'recommend', fontId] as const,
@@ -92,4 +94,10 @@ export const useFetchFontProgress = () =>
   useSuspenseQuery<FontProgressResponse, AxiosError>({
     queryKey: fontQueryKeys.progress(),
     queryFn: () => instance.get(`/fonts/progress`),
+  })
+
+export const useFetchMyFontRanking = () =>
+  useSuspenseQuery<FontRankingResponse, AxiosError>({
+    queryKey: fontQueryKeys.fontRanking(),
+    queryFn: () => instance.get('/fonts/members/popular'),
   })
