@@ -14,25 +14,23 @@ import type {
   ExploreFontListResponse,
   FontDetailRequest,
   FontDetailResponse,
+  FontProgressResponse,
   PopularFontListResponse,
   RecommendListResponse,
 } from '@/types/font'
 
 export const fontQueryKeys = {
   all: ['fonts'],
-  detail: (fontId: number) => [...fontQueryKeys.all, 'detail', fontId],
-  downloadFont: (fontId: number) => [...fontQueryKeys.all, 'download', fontId],
+  detail: (fontId: number) => [...fontQueryKeys.all, 'detail', fontId] as const,
+  downloadFont: (fontId: number) => [...fontQueryKeys.all, 'download', fontId] as const,
+  progress: () => [...fontQueryKeys.all, 'progress'] as const,
 
-  popularFontList: () => [...fontQueryKeys.all, 'popular'],
-  recommendList: (fontId: number) => [...fontQueryKeys.all, 'recommend', fontId],
+  popularFontList: () => [...fontQueryKeys.all, 'popular'] as const,
+  recommendList: (fontId: number) => [...fontQueryKeys.all, 'recommend', fontId] as const,
 
-  exploreList: (sortBy: string, keyword: string) => [
-    ...fontQueryKeys.all,
-    'explore',
-    sortBy,
-    keyword,
-  ],
-} as const
+  exploreList: (sortBy: string, keyword: string) =>
+    [...fontQueryKeys.all, 'explore', sortBy, keyword] as const,
+}
 
 const ENDPOINTS = {
   exploreList: ({ page, sortBy, keyword }: ExploreFontListRequest['url']) => {
@@ -88,4 +86,10 @@ export const useFetchFontDetail = ({ url }: FontDetailRequest) =>
         queryFn: () => instance.get<RecommendListResponse>(`/fonts/${url.fontId}/others`),
       },
     ],
+  })
+
+export const useFetchFontProgress = () =>
+  useSuspenseQuery<FontProgressResponse, AxiosError>({
+    queryKey: fontQueryKeys.progress(),
+    queryFn: () => instance.get(`/fonts/progress`),
   })

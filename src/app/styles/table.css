@@ -1,0 +1,13 @@
+@layer components {
+  .table-cell {
+    @apply p4 border-divider border p-4;
+  }
+
+  .striped-row {
+    @apply even:bg-background;
+  }
+
+  .table-header {
+    @apply bg-primary text-light-text;
+  }
+}

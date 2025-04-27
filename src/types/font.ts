@@ -15,6 +15,11 @@ type FontMetadata = {
   bookmarkCount: number
 }
 
+type Progress = {
+  createdAt: string
+  status: 'PROGRESS' | 'COMPLETE'
+}
+
 type FontDetail = Font & Author & FontMetadata
 
 export type FontType = Font & Pick<Author, 'writerName'>
@@ -50,3 +55,5 @@ export type EditFontRequest = {
   url: { fontId: number }
   body: EditFontForm
 }
+
+export type FontProgressResponse = (Pick<Font, 'id' | 'name'> & Progress)[]
