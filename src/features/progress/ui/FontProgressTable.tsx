@@ -1,10 +1,10 @@
-import { EmptyMessage } from '@/components/EmptyMessage'
-import { useFetchFontProgress } from '@/queries/useFont.queries'
+import { useFontProgress } from '@/features/home/api/home.query'
+import { EmptyMessage } from '@/shared/ui/EmptyMessage'
 
 const TABLE_HEADERS = ['폰트 이름', '제작 일자', '제작 상황']
 
 export const FontProgressTable = () => {
-  const { data: progressList } = useFetchFontProgress()
+  const { data: progressList } = useFontProgress()
 
   if (!progressList) throw new Error('폰트 제작 현황을 불러오지 못했습니다.')
   if (!progressList.length) return <EmptyMessage message="제작한 폰트가 없습니다." />

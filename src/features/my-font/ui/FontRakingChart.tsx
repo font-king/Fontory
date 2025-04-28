@@ -1,11 +1,12 @@
-import { EmptyMessage } from '@/components/EmptyMessage'
-import type { FontRankingResponse } from '@/types/font'
+import { EmptyMessage } from '@/shared/ui/EmptyMessage'
+
+import type { FontRanking } from '../type/myFont.type'
 
 import { BarChart } from './BarChart'
 import { ChartLegend } from './ChartLegend'
 
 type Props = {
-  fonts: FontRankingResponse
+  fonts: FontRanking
 }
 
 export const FontRankingChart = ({ fonts }: Props) => {

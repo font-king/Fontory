@@ -1,7 +1,7 @@
-import type { FontRankingResponse } from '@/types/font'
+import type { FontRanking } from '../type/myFont.type'
 
 type Props = {
-  fonts: FontRankingResponse
+  fonts: FontRanking
 }
 
 export const BarChart = ({ fonts }: Props) => {

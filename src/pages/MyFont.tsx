@@ -1,10 +1,10 @@
-import { SectionLayout } from '@/components/SectionLayout'
+import { useFontRanking } from '@/features/my-font/api/myFont.query'
 import { FontRankingChart } from '@/features/my-font/ui/FontRakingChart'
 import { FontRankingList } from '@/features/my-font/ui/FontRankingList'
-import { useFetchMyFontRanking } from '@/queries/useFont.queries'
+import { SectionLayout } from '@/shared/ui/SectionLayout'
 
-export const MyFont = () => {
-  const { data: fonts } = useFetchMyFontRanking()
+const MyFont = () => {
+  const { data: fonts } = useFontRanking()
 
   return (
     <div className="flex-column gap-6">
@@ -21,3 +21,5 @@ export const MyFont = () => {
     </div>
   )
 }
+
+export default MyFont

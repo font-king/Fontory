@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const FONT_FORM_FIELDS = {
+export const fontAttribute = {
   name: {
     section: 'name',
     label: '폰트 이름',
@@ -16,7 +16,7 @@ export const FONT_FORM_FIELDS = {
   },
 } as const
 
-export const fontFormSchema = z.object({
+export const fontSchema = z.object({
   name: z
     .string()
     .min(1, { message: '폰트 이름을 입력해주세요.' })

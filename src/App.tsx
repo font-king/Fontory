@@ -1,19 +1,19 @@
 import { Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 
-import { Toast } from './app/provider/ToastContainer'
-import { RouterComponent } from './app/router/RouterComponent'
-import { Header } from './components/Header'
-import { Loading } from './components/Loading'
-import { SideNavigationBar } from './components/SideNavigationBar'
+import { ToastProvider } from './app/providers'
+import { AppRouter } from './app/router'
 import { SideProfileSection } from './features/home/ui/SideProfileSection'
+import { Header } from './shared/ui/Header'
+import { Loading } from './shared/ui/Loading'
+import { SideNavigationBar } from './shared/ui/SideNavigationBar'
 
 import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
   return (
     <>
-      <Toast />
+      <ToastProvider />
       <div className="flex-column bg-background min-h-dvh">
         <Header />
 
@@ -22,7 +22,7 @@ function App() {
 
           <ErrorBoundary FallbackComponent={() => <div></div>}>
             <Suspense fallback={<Loading />}>
-              <RouterComponent />
+              <AppRouter />
             </Suspense>
           </ErrorBoundary>
 

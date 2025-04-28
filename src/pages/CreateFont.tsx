@@ -1,19 +1,12 @@
-import { FormProvider } from 'react-hook-form'
+import { CreateFontForm } from '@/features/create-font/ui'
+import { SectionLayout } from '@/shared/ui/SectionLayout'
 
-import { SectionLayout } from '@/components/SectionLayout'
-import { fontFormSchema } from '@/features/create-font/config/schema'
-import type { CreateFontFormType } from '@/features/create-font/model/createFont.type'
-import { CreateFontForm } from '@/features/create-font/ui/CreateFontForm'
-import { useCustomForm } from '@/hooks/useCustomForm'
-
-export const CreateFont = () => {
-  const formMethods = useCustomForm<CreateFontFormType>(fontFormSchema)
-
+const CreateFont = () => {
   return (
     <SectionLayout title="폰트 제작">
-      <FormProvider {...formMethods}>
-        <CreateFontForm />
-      </FormProvider>
+      <CreateFontForm />
     </SectionLayout>
   )
 }
+
+export default CreateFont

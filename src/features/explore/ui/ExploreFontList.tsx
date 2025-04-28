@@ -1,15 +1,15 @@
 import InfiniteScroll from 'react-infinite-scroller'
 
-import { EmptyMessage } from '@/components/EmptyMessage'
-import { FontCardWithProfile } from '@/components/FontCardWithProfile'
-import { useFetchExploreFontList } from '@/queries/useFont.queries'
+import { useQueryParams } from '@/shared/hooks/useQueryParams'
+import { EmptyMessage } from '@/shared/ui/EmptyMessage'
+import { FontCardWithProfile } from '@/shared/ui/FontCardWithProfile'
 
-import { useExploreListQueryParams } from '../hook/useExploreListQueryParams'
+import { useExploreList } from '../api/explore.query'
 
 export const ExploreFontList = () => {
-  const { sortBy, keyword } = useExploreListQueryParams()
+  const { sortBy, keyword } = useQueryParams({ sortBy: 'createdAt', keyword: '' })
 
-  const { data, hasNextPage, fetchNextPage } = useFetchExploreFontList({ url: { sortBy, keyword } })
+  const { data, hasNextPage, fetchNextPage } = useExploreList(sortBy, keyword)
 
   const fontList = data.pages.flatMap((page) => page.content)
 

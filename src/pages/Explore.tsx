@@ -1,13 +1,13 @@
-import { SearchBar } from '@/components/SearchBar'
-import { SectionLayout } from '@/components/SectionLayout'
+import { ExploreFilterList } from '@/features/explore/ui/ExploreFilterList'
 import { ExploreFontList } from '@/features/explore/ui/ExploreFontList'
-import { FilterList } from '@/features/explore/ui/FilterList'
+import { SearchBar } from '@/shared/ui/SearchBar'
+import { SectionLayout } from '@/shared/ui/SectionLayout'
 
-export const Explore = () => {
+const Explore = () => {
   return (
     <SectionLayout>
       <section className="border-lightgrey mb-12 grid grid-cols-2 items-center overflow-x-hidden border-b pb-5">
-        <FilterList />
+        <ExploreFilterList />
         <SearchBar />
       </section>
 
@@ -15,3 +15,5 @@ export const Explore = () => {
     </SectionLayout>
   )
 }
+
+export default Explore

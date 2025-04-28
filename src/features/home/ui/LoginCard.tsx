@@ -1,6 +1,6 @@
 import GoogleLogin from '@/assets/login/Google.svg?react'
 import NaverLogin from '@/assets/login/Naver.svg?react'
-import { SectionLayout } from '@/components/SectionLayout'
+import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 export const LoginCard = () => {
   return (

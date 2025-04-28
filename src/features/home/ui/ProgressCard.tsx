@@ -1,8 +1,9 @@
-import { SectionLayout } from '@/components/SectionLayout'
-import { useFetchFontProgress } from '@/queries/useFont.queries'
+import { SectionLayout } from '@/shared/ui/SectionLayout'
+
+import { useFontProgress } from '../api/home.query'
 
 export const ProgressCard = () => {
-  const { data } = useFetchFontProgress()
+  const { data } = useFontProgress()
 
   if (!data) return null
 

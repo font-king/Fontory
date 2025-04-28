@@ -1,14 +1,14 @@
 import InfiniteScroll from 'react-infinite-scroller'
 
-import { EmptyMessage } from '@/components/EmptyMessage'
-import { FontCardWithoutProfile } from '@/components/FontCardWithoutProfile'
-import { useFetchCustomFontList } from '@/queries/useFont.queries'
+import { EmptyMessage } from '@/shared/ui/EmptyMessage'
+import { FontCardWithoutProfile } from '@/shared/ui/FontCardWithoutProfile'
 
+import { useCustomList } from '../api/myFont.query'
 import { useCustomListQueryParams } from '../hook/useCustomListQueryParams'
 
 export const CustomFontList = () => {
   const { keyword } = useCustomListQueryParams()
-  const { data, hasNextPage, fetchNextPage } = useFetchCustomFontList({ url: { keyword } })
+  const { data, hasNextPage, fetchNextPage } = useCustomList(keyword)
 
   const fontList = data.pages.flatMap((page) => page.content)
 

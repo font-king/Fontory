@@ -1,12 +1,14 @@
-import { SectionLayout } from '@/components/SectionLayout'
-import { PopularFontList } from '@/features/home/ui/PopularFontList'
+import { PopularList } from '@/features/home/ui/PopularList'
+import { SectionLayout } from '@/shared/ui/SectionLayout'
 
-export const Home = () => {
+const Home = () => {
   return (
     <div>
       <SectionLayout title="인기 폰트">
-        <PopularFontList />
+        <PopularList />
       </SectionLayout>
     </div>
   )
 }
+
+export default Home

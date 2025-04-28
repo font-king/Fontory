@@ -1,19 +1,19 @@
 import { z } from 'zod'
 
-export const EDIT_FONT_FIELDS = {
-  NAME: {
+export const editAttribute = {
+  name: {
     section: 'name',
     label: '폰트 이름',
     input: { placeholder: '폰트 이름을 입력해주세요.' },
   },
-  EXAMPLE: {
+  example: {
     section: 'example',
     label: '예시 문구',
     input: { placeholder: '예시 문구를 입력해주세요.' },
   },
 }
 
-export const editFontSchema = z.object({
+export const editSchema = z.object({
   name: z
     .string()
     .min(1, { message: '폰트 이름을 입력해주세요.' })

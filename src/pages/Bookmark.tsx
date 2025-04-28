@@ -1,13 +1,15 @@
-import { SearchBar } from '@/components/SearchBar'
-import { SectionLayout } from '@/components/SectionLayout'
-import { BookmarkFontList } from '@/features/bookmark/ui/BookmarkFontList'
+import { BookmarkList } from '@/features/bookmark/ui/BookmarkList'
+import { SearchBar } from '@/shared/ui/SearchBar'
+import { SectionLayout } from '@/shared/ui/SectionLayout'
 
-export const Bookmark = () => (
+const Bookmark = () => (
   <SectionLayout>
     <div className="border-lightgrey mb-12 border-b pb-5">
       <SearchBar />
     </div>
 
-    <BookmarkFontList />
+    <BookmarkList />
   </SectionLayout>
 )
+
+export default Bookmark

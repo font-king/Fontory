@@ -1,38 +1,35 @@
 import { FormProvider } from 'react-hook-form'
 
-import { InputGroup } from '@/components/inputGroup'
-import { Modal } from '@/components/Modal'
-import { MODAL_KEYS } from '@/constants/modalKeys'
-import { useCustomForm } from '@/hooks/useCustomForm'
-import type { EditFontForm } from '@/types/font'
-
-import { EDIT_FONT_FIELDS, editFontSchema } from '../config/schema'
-import { useEditFont } from '../hook/useEditFont'
-import { useFontDetails } from '../model/fontDetail.store'
+import { editAttribute, editSchema } from '@/features/detail/config/schema'
+import { useEditFontHandler } from '@/features/detail/hook/useEditFontHandler'
+import { useFontDetails } from '@/features/detail/stores/fontDetail.store'
+import type { EditForm } from '@/features/detail/type/detail.type'
+import { MODAL_KEYS } from '@/shared/config/modalKeys'
+import { useCustomForm } from '@/shared/hooks/useCustomForm'
+import { InputGroup } from '@/shared/ui/inputGroup'
+import { Modal } from '@/shared/ui/Modal'
 
 export const EditFontModal = () => {
   const font = useFontDetails()
 
-  const formMethods = useCustomForm<EditFontForm>(editFontSchema, {
+  const formMethods = useCustomForm<EditForm>(editSchema, {
     defaultValues: { name: font?.name, example: font?.example },
   })
 
   const { handleSubmit } = formMethods
-  const { handleEditFont } = useEditFont()
-
-  const { NAME, EXAMPLE } = EDIT_FONT_FIELDS
+  const { handleEditFont } = useEditFontHandler()
 
   return (
     <Modal id={MODAL_KEYS.editFont} title="내 폰트 수정" onSubmit={handleSubmit(handleEditFont)}>
       <FormProvider {...formMethods}>
-        <InputGroup section={NAME.section}>
-          <InputGroup.Label label={NAME.label} />
-          <InputGroup.Input {...NAME.input} />
+        <InputGroup section={editAttribute.name}>
+          <InputGroup.Label />
+          <InputGroup.Input />
         </InputGroup>
 
-        <InputGroup section={EXAMPLE.section}>
-          <InputGroup.Label label={EXAMPLE.label} />
-          <InputGroup.TextArea {...EXAMPLE.input} />
+        <InputGroup section={editAttribute.example}>
+          <InputGroup.Label />
+          <InputGroup.TextArea />
         </InputGroup>
       </FormProvider>
     </Modal>
