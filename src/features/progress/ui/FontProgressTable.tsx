@@ -27,10 +27,15 @@ export const FontProgressTable = () => {
           const statusStyle = isProgress ? 'text-secondary' : 'text-warn'
           const progressLabel = isProgress ? '제작 중' : '제작 완료'
 
+          const date = new Date(createdAt)
+          const year = date.getFullYear()
+          const month = String(date.getMonth() + 1).padStart(2, '0')
+          const day = String(date.getDate()).padStart(2, '0')
+
           return (
             <tr key={id} className="striped-row text-primary">
               <td className="table-cell">{name}</td>
-              <td className="table-cell">{createdAt}</td>
+              <td className="table-cell">{`${year}.${month}.${day}`}</td>
               <td className={`table-cell font-bold ${statusStyle}`}>{progressLabel}</td>
             </tr>
           )
