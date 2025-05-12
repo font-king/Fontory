@@ -1,6 +1,7 @@
 import { SectionLayout } from '@/components'
+import { PROGRESS_STATUS } from '@/shared/config/progressStatus'
 
-import { useFontProgress } from '../api/home.query'
+import { useFontProgress } from '../apis/sideProfile.query'
 
 export const ProgressCard = () => {
   const { data } = useFontProgress()
@@ -13,7 +14,7 @@ export const ProgressCard = () => {
     <SectionLayout title="제작 현황" moreViewTo="/progress">
       <div className="flex-column gap-4">
         {progressList.map(({ id, name, status }) => {
-          const isProgress = status === 'PROGRESS'
+          const isProgress = status === PROGRESS_STATUS.progress
           const textStyle = isProgress ? 'text-secondary' : 'text-warn'
           const progressLabel = isProgress ? '제작 중' : '제작 완료'
 

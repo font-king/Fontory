@@ -1,6 +1,6 @@
 import { Button, Icon } from '@/components'
 
-import { useFontDownloadHandler } from '../hooks/useFontDownloadHandler'
+import { useFontDownloadHandler } from './useFontDownloadHandler'
 
 type Props = {
   fontId: number

@@ -2,7 +2,7 @@ import { LoginCard } from './LoginCard'
 import { ProfileCard } from './ProfileCard'
 import { ProgressCard } from './ProgressCard'
 
-export const SideProfileSection = () => {
+export const SideProfile = () => {
   // 로그인 여부에 따른 렌더링
   // const isLoggedIn =
 

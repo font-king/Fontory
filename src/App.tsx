@@ -1,11 +1,10 @@
 import { Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 
-import { Header, Loading, SideNavigationBar } from '@/components'
+import { Header, Loading, SideNavigationBar, SideProfile } from '@/components'
 
 import { ToastProvider } from './app/providers'
 import { AppRouter } from './app/router'
-import { SideProfileSection } from './features/home/ui/SideProfileSection'
 
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -27,7 +26,7 @@ function App() {
 
           <ErrorBoundary FallbackComponent={() => <div></div>}>
             <Suspense fallback={null}>
-              <SideProfileSection />
+              <SideProfile />
             </Suspense>
           </ErrorBoundary>
         </main>

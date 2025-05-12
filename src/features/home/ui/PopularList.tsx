@@ -1,12 +1,13 @@
 import { EmptyMessage, FontCardWithProfile } from '@/components'
+import { ERROR_MESSAGE_LIST } from '@/shared/config/errorMessageList'
 
-import { usePopularList } from '../api/home.query'
+import { usePopularList } from '../apis/home.query'
 
 export const PopularList = () => {
   const { data: fontList } = usePopularList()
 
   if (!fontList || !fontList.length) {
-    return <EmptyMessage message="아직 등록된 폰트가 없습니다." />
+    return <EmptyMessage message={ERROR_MESSAGE_LIST.emptyFontList} />
   }
 
   return (
