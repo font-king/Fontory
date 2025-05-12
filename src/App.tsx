@@ -1,12 +1,13 @@
 import { Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 
+import { SideNavigationBar } from '@/components'
+
 import { ToastProvider } from './app/providers'
 import { AppRouter } from './app/router'
 import { SideProfileSection } from './features/home/ui/SideProfileSection'
 import { Header } from './shared/ui/Header'
 import { Loading } from './shared/ui/Loading'
-import { SideNavigationBar } from './shared/ui/SideNavigationBar'
 
 import 'react-toastify/dist/ReactToastify.css'
 

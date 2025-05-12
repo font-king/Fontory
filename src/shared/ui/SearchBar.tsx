@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import SearchIcon from '@/assets/icons/Search.svg?react'
+import { Icon } from '@/components'
 
 type SearchForm = {
   keyword: string
@@ -39,7 +39,7 @@ export const SearchBar = () => {
         className="p4 text-primary placeholder:text-placeholder grow"
       />
       <button type="submit" className="cursor-pointer">
-        <SearchIcon width="3.6rem" height="3.6rem" />
+        <Icon name={'search'} size={'3.6rem'} />
       </button>
     </form>
   )
