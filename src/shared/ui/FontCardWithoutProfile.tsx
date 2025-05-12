@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import CaretRight from '@/assets/icons/CaretRight.svg?react'
-import { DownloadButton } from '@/components'
-import { BookmarkButton } from '@/features/home/ui/BookmarkButton'
+import { BookmarkButton, DownloadButton } from '@/components'
 import type { FontWithoutProfileType } from '@/shared/types/font'
 
 type Props = {

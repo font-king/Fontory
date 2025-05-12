@@ -1,6 +1,5 @@
-import FilledBookmarkIcon from '@/assets/icons/FilledBookmark.svg?react'
-import UnfilledBookmarkIcon from '@/assets/icons/UnfilledBookmark.svg?react'
-import { useBookmark } from '@/shared/hooks/useBookmark'
+import { Icon } from '@/components'
+import { useBookmark } from '@/components/BookmarkButton/hooks/useBookmark'
 import { Button } from '@/shared/ui/Button'
 
 type Props = {
@@ -23,9 +22,9 @@ export const BookmarkButton = ({ fontId, isBookmarked, isIconType = false }: Pro
   return (
     <button type="button" onClick={handleBookmark}>
       {isBookmarked ? (
-        <FilledBookmarkIcon width="2.8rem" height="2.8rem" className="cursor-pointer" />
+        <Icon name={'filled-bookmark'} size={'2.8rem'} className="cursor-pointer" />
       ) : (
-        <UnfilledBookmarkIcon width="2.8rem" height="2.8rem" className="cursor-pointer" />
+        <Icon name={'unfilled-bookmark'} size={'2.8rem'} className="cursor-pointer" />
       )}
     </button>
   )
