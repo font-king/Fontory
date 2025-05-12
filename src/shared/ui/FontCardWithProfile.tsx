@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { DownloadButton } from '@/components'
 import { BookmarkButton } from '@/features/home/ui/BookmarkButton'
 import type { FontType } from '@/shared/types/font'
-
-import { DownloadButton } from '../../features/home/ui/DownloadButton'
 
 import { ProfileImage } from './ProfileImage'
 

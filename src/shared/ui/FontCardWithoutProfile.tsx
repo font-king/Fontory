@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom'
 
 import CaretRight from '@/assets/icons/CaretRight.svg?react'
+import { DownloadButton } from '@/components'
 import { BookmarkButton } from '@/features/home/ui/BookmarkButton'
 import type { FontWithoutProfileType } from '@/shared/types/font'
-
-import { DownloadButton } from '../../features/home/ui/DownloadButton'
 
 type Props = {
   font: FontWithoutProfileType

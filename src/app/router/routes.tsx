@@ -1,7 +1,7 @@
 import { lazy } from 'react'
 import type { RouteObject } from 'react-router-dom'
 
-const Home = lazy(() => import('@/pages/Home'))
+const Home = lazy(() => import('@/features/home/entry/Home'))
 const CreateFont = lazy(() => import('@/pages/CreateFont'))
 const Explore = lazy(() => import('@/pages/Explore'))
 const FontDetail = lazy(() => import('@/pages/FontDetail'))

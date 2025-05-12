@@ -1,6 +1,6 @@
+import { DownloadButton } from '@/components'
 import { useFontDetails } from '@/features/detail/stores/fontDetail.store'
 import { BookmarkButton } from '@/features/home/ui/BookmarkButton'
-import { DownloadButton } from '@/features/home/ui/DownloadButton'
 import { ProfileImage } from '@/shared/ui/ProfileImage'
 
 export const DetailHeader = () => {
