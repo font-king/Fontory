@@ -6,7 +6,7 @@ import { MAIN_QUERY_KEY } from '@/app/api/globalQueryKey'
 import type { FontDetail } from '@/shared/types/font'
 
 export const homeKeys = {
-  all: [MAIN_QUERY_KEY, 'home'] as const,
+  all: [...MAIN_QUERY_KEY, 'home'] as const,
   popularList: () => [...homeKeys.all, 'popular'] as const,
 }
 

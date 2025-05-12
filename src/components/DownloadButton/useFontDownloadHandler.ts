@@ -1,6 +1,6 @@
 import type { MouseEvent } from 'react'
 
-import { useFontDownload } from '../apis/download.query'
+import { useFontDownload } from './download.query'
 
 export const useFontDownloadHandler = (fontId: number, fontName: string) => {
   const { refetch } = useFontDownload(fontId)

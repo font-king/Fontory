@@ -7,7 +7,7 @@ import { MAIN_QUERY_KEY } from '@/app/api/globalQueryKey'
 import type { DownloadResponse } from './download.type'
 
 const downloadKeys = {
-  downloadFont: (fontId: number) => [MAIN_QUERY_KEY, 'download', fontId] as const,
+  downloadFont: (fontId: number) => [...MAIN_QUERY_KEY, 'download', fontId] as const,
 }
 
 const endpoints = {
