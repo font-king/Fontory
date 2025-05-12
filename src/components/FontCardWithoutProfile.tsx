@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 
 import { BookmarkButton, DownloadButton, Icon } from '@/components'
-import type { FontWithoutProfileType } from '@/shared/types/font'
+import type { Font } from '@/shared/types/font'
 
 type Props = {
-  font: FontWithoutProfileType
+  font: Font
 }
 
 export const FontCardWithoutProfile = ({ font }: Props) => {

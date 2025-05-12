@@ -1,13 +1,12 @@
 import { FormProvider } from 'react-hook-form'
 
+import { InputGroup, Modal } from '@/components'
 import { editAttribute, editSchema } from '@/features/detail/config/schema'
 import { useEditFontHandler } from '@/features/detail/hook/useEditFontHandler'
 import { useFontDetails } from '@/features/detail/stores/fontDetail.store'
 import type { EditForm } from '@/features/detail/type/detail.type'
 import { MODAL_KEYS } from '@/shared/config/modalKeys'
 import { useCustomForm } from '@/shared/hooks/useCustomForm'
-import { InputGroup } from '@/shared/ui/inputGroup'
-import { Modal } from '@/shared/ui/Modal'
 
 export const EditFontModal = () => {
   const font = useFontDetails()

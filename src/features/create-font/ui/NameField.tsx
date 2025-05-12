@@ -1,4 +1,4 @@
-import { InputGroup } from '@/shared/ui/inputGroup'
+import { InputGroup } from '@/components'
 
 import { fontAttribute } from '../config/schema'
 import { useVerificationMessage } from '../stores/verification.store'

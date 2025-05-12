@@ -1,6 +1,5 @@
+import { EmptyMessage, FontCardWithoutProfile } from '@/components'
 import { useRecommendList } from '@/features/detail/stores/fontDetail.store'
-import { EmptyMessage } from '@/shared/ui/EmptyMessage'
-import { FontCardWithoutProfile } from '@/shared/ui/FontCardWithoutProfile'
 
 const ListContent = () => {
   const recommendList = useRecommendList()

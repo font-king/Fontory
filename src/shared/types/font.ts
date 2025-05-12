@@ -20,8 +20,6 @@ export type FontDetail = Font & Author & FontMetadata
 
 export type FontType = Font & Pick<Author, 'writerName'>
 
-export type FontWithoutProfileType = Font
-
 export type FontListResponse = {
   content: FontDetail[]
   page: number

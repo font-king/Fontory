@@ -1,6 +1,5 @@
+import { SearchBar, SectionLayout } from '@/components'
 import { CustomFontList } from '@/features/my-font/ui/CustomFontList'
-import { SearchBar } from '@/shared/ui/SearchBar'
-import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const MyCustomFont = () => {
   return (

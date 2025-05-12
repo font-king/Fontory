@@ -1,5 +1,4 @@
-import { EmptyMessage } from '@/shared/ui/EmptyMessage'
-import { FontCardWithProfile } from '@/shared/ui/FontCardWithProfile'
+import { EmptyMessage, FontCardWithProfile } from '@/components'
 
 import { usePopularList } from '../api/home.query'
 

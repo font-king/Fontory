@@ -38,7 +38,9 @@ export const Modal = ({ id, title, onSubmit, children }: Props) => {
             <button type="button" onClick={closeModal} className="p3 text-grey cursor-pointer p-1">
               취소
             </button>
+
             <h5 className="h2 text-primary">{title}</h5>
+
             <button type="submit" className="p3 text-grey cursor-pointer p-1">
               완료
             </button>

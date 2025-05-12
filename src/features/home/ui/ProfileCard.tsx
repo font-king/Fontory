@@ -1,5 +1,4 @@
-import { ProfileImage } from '@/components'
-import { SectionLayout } from '@/shared/ui/SectionLayout'
+import { ProfileImage, SectionLayout } from '@/components'
 
 export const ProfileCard = () => {
   const fontName = '고로케'

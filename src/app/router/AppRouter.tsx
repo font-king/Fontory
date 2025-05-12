@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import { Loading } from '@/shared/ui/Loading'
+import { Loading } from '@/components'
 
 import { routes } from './routes'
 

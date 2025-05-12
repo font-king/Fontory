@@ -1,4 +1,4 @@
-import { Button } from '@/shared/ui/Button'
+import { Button } from '@/components'
 
 export const TemplateDownload = () => (
   <div className="flex-column grow gap-11">

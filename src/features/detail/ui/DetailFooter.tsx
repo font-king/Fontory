@@ -1,7 +1,7 @@
 import { useModalActions } from '@/app/stores'
+import { Button } from '@/components'
 import { useDeleteFontHandler } from '@/features/detail/hook/useDeleteFontHandler'
 import { MODAL_KEYS } from '@/shared/config/modalKeys'
-import { Button } from '@/shared/ui/Button'
 
 import { EditFontModal } from './EditFontModal'
 

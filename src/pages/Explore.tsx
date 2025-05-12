@@ -1,7 +1,6 @@
+import { SearchBar, SectionLayout } from '@/components'
 import { ExploreFilterList } from '@/features/explore/ui/ExploreFilterList'
 import { ExploreFontList } from '@/features/explore/ui/ExploreFontList'
-import { SearchBar } from '@/shared/ui/SearchBar'
-import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const Explore = () => {
   return (

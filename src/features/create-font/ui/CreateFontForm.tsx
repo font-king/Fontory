@@ -1,8 +1,7 @@
 import { FormProvider } from 'react-hook-form'
 
+import { Button, InputGroup } from '@/components'
 import { useCustomForm } from '@/shared/hooks/useCustomForm'
-import { Button } from '@/shared/ui/Button'
-import { InputGroup } from '@/shared/ui/inputGroup'
 
 import { fontAttribute, fontSchema } from '../config/schema'
 import { useCreateFontForm } from '../hooks/useCreateFontForm'

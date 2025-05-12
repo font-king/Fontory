@@ -1,4 +1,4 @@
-import { EmptyMessage } from '@/shared/ui/EmptyMessage'
+import { EmptyMessage } from '@/components'
 
 import type { FontRanking } from '../type/myFont.type'
 

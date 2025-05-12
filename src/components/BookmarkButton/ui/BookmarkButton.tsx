@@ -1,6 +1,5 @@
-import { Icon } from '@/components'
+import { Button, Icon } from '@/components'
 import { useBookmark } from '@/components/BookmarkButton/hooks/useBookmark'
-import { Button } from '@/shared/ui/Button'
 
 type Props = {
   fontId: number

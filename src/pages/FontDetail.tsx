@@ -1,6 +1,6 @@
+import { SectionLayout } from '@/components'
 import { useFontDetailEffect } from '@/features/detail/hook/useFontDetailEffect'
 import { DetailContent, DetailHeader, FontDetailFooter, RecommendList } from '@/features/detail/ui'
-import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const FontDetail = () => {
   // const isMyFont = useFontOwnership()

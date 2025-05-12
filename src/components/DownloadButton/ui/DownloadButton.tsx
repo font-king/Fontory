@@ -1,5 +1,4 @@
-import { Icon } from '@/components'
-import { Button } from '@/shared/ui/Button'
+import { Button, Icon } from '@/components'
 
 import { useFontDownloadHandler } from '../hooks/useFontDownloadHandler'
 

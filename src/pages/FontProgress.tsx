@@ -1,5 +1,5 @@
+import { SectionLayout } from '@/components'
 import { FontProgressTable } from '@/features/progress/ui/FontProgressTable'
-import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const FontProgress = () => {
   return (

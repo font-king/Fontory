@@ -1,7 +1,6 @@
 import InfiniteScroll from 'react-infinite-scroller'
 
-import { EmptyMessage } from '@/shared/ui/EmptyMessage'
-import { FontCardWithoutProfile } from '@/shared/ui/FontCardWithoutProfile'
+import { EmptyMessage, FontCardWithoutProfile } from '@/components'
 
 import { useCustomList } from '../api/myFont.query'
 import { useCustomListQueryParams } from '../hook/useCustomListQueryParams'

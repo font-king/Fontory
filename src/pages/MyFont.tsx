@@ -1,7 +1,7 @@
+import { SectionLayout } from '@/components'
 import { useFontRanking } from '@/features/my-font/api/myFont.query'
 import { FontRankingChart } from '@/features/my-font/ui/FontRakingChart'
 import { FontRankingList } from '@/features/my-font/ui/FontRankingList'
-import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 const MyFont = () => {
   const { data: fonts } = useFontRanking()

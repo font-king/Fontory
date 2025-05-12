@@ -12,6 +12,7 @@ const Title = ({ title, subTitle, moreViewTo }: Omit<Props, 'children'>) => (
   <div className="flex-column mb-[3.2rem] gap-5">
     <div className="flex-between-center">
       <h4 className="h3 text-primary">{title}</h4>
+
       {moreViewTo && (
         <Link
           to={moreViewTo}

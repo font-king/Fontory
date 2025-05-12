@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useFormContext, useWatch } from 'react-hook-form'
 
-import { Button } from '@/shared/ui/Button'
+import { Button } from '@/components'
 
 import { fontAttribute } from '../config/schema'
 import { useFileUpload } from '../hooks/useFileUpload'

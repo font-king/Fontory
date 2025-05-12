@@ -1,4 +1,4 @@
-import { SectionLayout } from '@/shared/ui/SectionLayout'
+import { SectionLayout } from '@/components'
 
 import { useFontProgress } from '../api/home.query'
 

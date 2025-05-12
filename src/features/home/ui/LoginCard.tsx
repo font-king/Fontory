@@ -1,5 +1,4 @@
-import { Icon } from '@/components'
-import { SectionLayout } from '@/shared/ui/SectionLayout'
+import { Icon, SectionLayout } from '@/components'
 
 export const LoginCard = () => {
   return (
