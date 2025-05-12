@@ -1,6 +1,5 @@
-import { BookmarkButton, DownloadButton } from '@/components'
+import { BookmarkButton, DownloadButton, ProfileImage } from '@/components'
 import { useFontDetails } from '@/features/detail/stores/fontDetail.store'
-import { ProfileImage } from '@/shared/ui/ProfileImage'
 
 export const DetailHeader = () => {
   const font = useFontDetails()

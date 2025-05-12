@@ -1,4 +1,4 @@
-import { ProfileImage } from '@/shared/ui/ProfileImage'
+import { ProfileImage } from '@/components'
 import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 export const ProfileCard = () => {

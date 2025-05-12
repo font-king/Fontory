@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { BookmarkButton, DownloadButton } from '@/components'
+import { ProfileImage } from '@/components'
 import type { FontType } from '@/shared/types/font'
-
-import { ProfileImage } from './ProfileImage'
 
 type Props = {
   font: FontType
