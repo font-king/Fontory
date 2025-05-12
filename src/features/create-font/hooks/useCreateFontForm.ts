@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { useCreateFont } from '../api/createFont.mutation'
 import type { CreateForm } from '../type/createFont.type'
 
 export const useCreateFontForm = () => {
+  const navigate = useNavigate()
   const { mutate: createFont } = useCreateFont()
 
   const handleSubmitForm = (formData: CreateForm) => {
@@ -18,7 +20,10 @@ export const useCreateFontForm = () => {
     sendForm.append('file', formData.file)
 
     createFont(sendForm, {
-      onSuccess: () => toast.success('폰트 제작 요청이 되었습니다.'),
+      onSuccess: () => {
+        toast.success('폰트 제작 요청이 되었습니다.')
+        navigate('/progress')
+      },
       onError: () => toast.error('폰트 제작 요청에 실패하였습니다.'),
     })
   }

@@ -1,5 +1,6 @@
 import { useFontProgress } from '@/features/home/api/home.query'
 import { EmptyMessage } from '@/shared/ui/EmptyMessage'
+import { getFormattedDateTime } from '@/shared/utils/getFormattedDateTime'
 
 const TABLE_HEADERS = ['폰트 이름', '제작 일자', '제작 상황']
 
@@ -28,14 +29,11 @@ export const FontProgressTable = () => {
           const progressLabel = isProgress ? '제작 중' : '제작 완료'
 
           const date = new Date(createdAt)
-          const year = date.getFullYear()
-          const month = String(date.getMonth() + 1).padStart(2, '0')
-          const day = String(date.getDate()).padStart(2, '0')
 
           return (
             <tr key={id} className="striped-row text-primary">
               <td className="table-cell">{name}</td>
-              <td className="table-cell">{`${year}.${month}.${day}`}</td>
+              <td className="table-cell">{getFormattedDateTime(date)}</td>
               <td className={`table-cell font-bold ${statusStyle}`}>{progressLabel}</td>
             </tr>
           )

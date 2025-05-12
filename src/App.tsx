@@ -27,7 +27,7 @@ function App() {
           </ErrorBoundary>
 
           <ErrorBoundary FallbackComponent={() => <div></div>}>
-            <Suspense fallback={<Loading />}>
+            <Suspense fallback={null}>
               <SideProfileSection />
             </Suspense>
           </ErrorBoundary>

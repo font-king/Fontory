@@ -3,7 +3,7 @@ import { SectionLayout } from '@/shared/ui/SectionLayout'
 
 export const ProfileCard = () => {
   const fontName = '고로케'
-  const count = 32
+  const count = 2
 
   return (
     <SectionLayout>

@@ -14,18 +14,26 @@ export const DownloadButton = ({ fontId, fontName, isIconType = false }: Props) 
   const { refetch } = useFontDownload(fontId)
 
   const handleDownload = async (event: MouseEvent<HTMLButtonElement>) => {
-    refetch()
     event.stopPropagation()
     event.preventDefault()
-    const { data: blob } = await refetch()
-    const url = window.URL.createObjectURL(blob as Blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = `${fontName}.ttf`
-    document.body.appendChild(a)
-    a.click()
-    a.remove()
-    window.URL.revokeObjectURL(url)
+
+    const { data } = await refetch()
+    if (!data?.ttf) return
+
+    try {
+      const response = await fetch(data.ttf)
+      const blob = await response.blob()
+
+      const a = document.createElement('a')
+      a.href = URL.createObjectURL(blob)
+      a.download = `${fontName}.ttf`
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      URL.revokeObjectURL(a.href)
+    } catch (error) {
+      console.error('폰트 다운로드 실패:', error)
+    }
   }
 
   if (!isIconType) {

@@ -3,6 +3,7 @@ export type Font = {
   name: string
   example: string
   bookmarked: boolean
+  woff: string
 }
 
 type Author = {

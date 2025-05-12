@@ -12,13 +12,14 @@ export const useFileUpload = (section: string) => {
     setIsLoading(true)
 
     if (!file) {
-      setValue(section, null, { shouldValidate: true })
+      setValue(section, null)
       toast.error('파일 선택이 취소되었습니다')
       return
     }
 
     setValue(section, file, { shouldValidate: true })
     setIsLoading(false)
+    toast.success('파일이 업로드되었습니다.')
   }
 
   return { isLoading, handleFileChange }

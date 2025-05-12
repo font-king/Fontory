@@ -9,7 +9,7 @@ import { useExploreList } from '../api/explore.query'
 export const ExploreFontList = () => {
   const { sortBy, keyword } = useQueryParams({ sortBy: 'createdAt', keyword: '' })
 
-  const { data, hasNextPage, fetchNextPage } = useExploreList(sortBy, keyword)
+  const { data, hasNextPage, fetchNextPage } = useExploreList(keyword, sortBy)
 
   const fontList = data.pages.flatMap((page) => page.content)
 
