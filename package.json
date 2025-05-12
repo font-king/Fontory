@@ -4,10 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "pnpm generate:icons",
+    "prebuild": "pnpm generate:icons",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:icons": "node src/scripts/generate-icon-map.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
