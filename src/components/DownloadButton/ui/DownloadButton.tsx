@@ -1,4 +1,4 @@
-import DownloadIcon from '@/assets/icons/Download.svg?react'
+import { Icon } from '@/components'
 import { Button } from '@/shared/ui/Button'
 
 import { useFontDownloadHandler } from '../hooks/useFontDownloadHandler'
@@ -22,7 +22,7 @@ export const DownloadButton = ({ fontId, fontName, isIconType = false }: Props) 
 
   return (
     <button type="button" onClick={handleDownload} className="cursor-pointer">
-      <DownloadIcon width="2.8rem" height="2.8rem" />
+      <Icon name={'download'} size={'2.8rem'} />
     </button>
   )
 }

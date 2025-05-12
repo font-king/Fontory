@@ -4,7 +4,7 @@ import { type IconComponent, iconMap, type IconName } from './iconMap'
 
 type IconProps = {
   name: IconName
-  size?: number
+  size?: number | string
   className?: string
 } & React.SVGProps<SVGSVGElement>
 
