@@ -3,7 +3,7 @@ import type { AxiosError } from 'axios'
 
 import { apiClient } from '@/app/api'
 import { MAIN_QUERY_KEY } from '@/app/api/globalQueryKey'
-import type { FontDetail } from '@/shared/types/font'
+import type { FontDetail } from '@/types'
 
 export const homeKeys = {
   all: [...MAIN_QUERY_KEY, 'home'] as const,

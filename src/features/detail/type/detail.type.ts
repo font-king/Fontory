@@ -1,6 +1,6 @@
 import type { UseSuspenseQueryResult } from '@tanstack/react-query'
 
-import type { Font, FontDetail } from '@/shared/types/font'
+import type { Font, FontDetail } from '@/types'
 
 export type DetailResponse = FontDetail
 export type RecommendListResponse = FontDetail[]

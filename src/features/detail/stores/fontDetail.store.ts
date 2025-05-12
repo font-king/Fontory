@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-import type { FontDetail } from '@/shared/types/font'
+import type { FontDetail } from '@/types'
 
 type FontDetailState = {
   font: FontDetail | null

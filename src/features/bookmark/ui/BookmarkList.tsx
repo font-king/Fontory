@@ -1,7 +1,7 @@
 import InfiniteScroll from 'react-infinite-scroller'
 
 import { EmptyMessage, FontCardWithProfile } from '@/components'
-import { useQueryParams } from '@/shared/hooks/useQueryParams'
+import { useQueryParams } from '@/hooks'
 
 import { useBookmarkList } from '../api/bookmark.query'
 

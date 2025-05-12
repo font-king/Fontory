@@ -1,5 +1,5 @@
 import { Icon } from '@/components'
-import type { SizeType } from '@/shared/types/common'
+import type { SizeType } from '@/types'
 
 type Props = {
   size: SizeType

@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 import { useModalActions } from '@/app/stores'
 import { useEditFont } from '@/features/detail/api/detail.mutation'
 import type { EditForm } from '@/features/detail/type/detail.type'
-import { useParamFontId } from '@/shared/hooks/useParamFontId'
+import { useParamFontId } from '@/hooks'
 
 export const useEditFontHandler = () => {
   const fontId = useParamFontId()

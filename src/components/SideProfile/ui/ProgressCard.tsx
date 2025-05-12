@@ -1,5 +1,5 @@
 import { SectionLayout } from '@/components'
-import { PROGRESS_STATUS } from '@/shared/config/progressStatus'
+import { PROGRESS_STATUS } from '@/config'
 
 import { useFontProgress } from '../apis/sideProfile.query'
 

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { BookmarkButton, DownloadButton, Icon } from '@/components'
-import type { Font } from '@/shared/types/font'
+import type { Font } from '@/types'
 
 type Props = {
   font: Font

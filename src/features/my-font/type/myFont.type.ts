@@ -1,5 +1,5 @@
-import type { ProgressStatus } from '@/shared/config/progressStatus'
-import type { Font, FontMetadata } from '@/shared/types/font'
+import type { ProgressStatus } from '@/config'
+import type { Font, FontMetadata } from '@/types'
 
 type Progress = {
   createdAt: string

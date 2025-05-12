@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 import { Icon } from '@/components'
 import type { IconName } from '@/components/Icon/iconMap'
-import { getCssVar } from '@/shared/utils/getCssVar'
+import { getCssVar } from '@/utils'
 
 import { NAVIGATION_LIST } from '../constants/navigationList'
 

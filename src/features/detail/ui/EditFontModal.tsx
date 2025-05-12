@@ -5,8 +5,8 @@ import { editAttribute, editSchema } from '@/features/detail/config/schema'
 import { useEditFontHandler } from '@/features/detail/hook/useEditFontHandler'
 import { useFontDetails } from '@/features/detail/stores/fontDetail.store'
 import type { EditForm } from '@/features/detail/type/detail.type'
+import { useCustomForm } from '@/hooks'
 import { MODAL_KEYS } from '@/shared/config/modalKeys'
-import { useCustomForm } from '@/shared/hooks/useCustomForm'
 
 export const EditFontModal = () => {
   const font = useFontDetails()

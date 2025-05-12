@@ -1,7 +1,8 @@
 import InfiniteScroll from 'react-infinite-scroller'
 
 import { EmptyMessage, FontCardWithProfile } from '@/components'
-import { useQueryParams } from '@/shared/hooks/useQueryParams'
+import { ERROR_MESSAGE_LIST } from '@/config'
+import { useQueryParams } from '@/hooks'
 
 import { useExploreList } from '../api/explore.query'
 
@@ -12,7 +13,8 @@ export const ExploreFontList = () => {
 
   const fontList = data.pages.flatMap((page) => page.content)
 
-  if (!fontList || !fontList.length) return <EmptyMessage message="아직 등록된 폰트가 없습니다." />
+  if (!fontList || !fontList.length)
+    return <EmptyMessage message={ERROR_MESSAGE_LIST.emptyFontList} />
 
   return (
     <InfiniteScroll hasMore={hasNextPage} threshold={250} loadMore={() => fetchNextPage()}>

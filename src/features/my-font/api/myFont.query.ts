@@ -3,7 +3,7 @@ import type { AxiosError } from 'axios'
 
 import { apiClient } from '@/app/api'
 import { MAIN_QUERY_KEY } from '@/app/api/globalQueryKey'
-import type { FontListResponse } from '@/shared/types/font'
+import type { FontListResponse } from '@/types'
 
 import type { FontRanking } from '../type/myFont.type'
 

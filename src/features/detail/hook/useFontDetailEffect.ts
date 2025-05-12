@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 import { useFontDetail } from '@/features/detail/api/detail.query'
 import { useFontDetailActions } from '@/features/detail/stores/fontDetail.store'
-import { useParamFontId } from '@/shared/hooks/useParamFontId'
+import { useParamFontId } from '@/hooks'
 
 export const useFontDetailEffect = () => {
   const fontId = useParamFontId()

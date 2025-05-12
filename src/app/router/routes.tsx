@@ -2,13 +2,13 @@ import { lazy } from 'react'
 import type { RouteObject } from 'react-router-dom'
 
 const Home = lazy(() => import('@/features/home/entry/Home'))
-const CreateFont = lazy(() => import('@/pages/CreateFont'))
-const Explore = lazy(() => import('@/pages/Explore'))
-const FontDetail = lazy(() => import('@/pages/FontDetail'))
-const FontProgress = lazy(() => import('@/pages/FontProgress'))
-const MyFont = lazy(() => import('@/pages/MyFont'))
-const Bookmark = lazy(() => import('@/pages/Bookmark'))
-const MyCustomFont = lazy(() => import('@/pages/MyCustomFont'))
+const CreateFont = lazy(() => import('@/features/create-font/entry/CreateFont'))
+const Explore = lazy(() => import('@/features/explore/entry/Explore'))
+const FontDetail = lazy(() => import('@/features/detail/entry/FontDetail'))
+const FontProgress = lazy(() => import('@/features/progress/entry/FontProgress'))
+const MyFont = lazy(() => import('@/features/my-font/entry/MyFont'))
+const Bookmark = lazy(() => import('@/features/bookmark/entry/Bookmark'))
+const MyCustomFont = lazy(() => import('@/features/my-font/entry/MyCustomFont'))
 
 export const routes: RouteObject[] = [
   { path: '/', element: <Home /> },

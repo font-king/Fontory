@@ -1,6 +1,6 @@
 import { EmptyMessage } from '@/components'
-import { useFontProgress } from '@/features/home/api/home.query'
-import { getFormattedDateTime } from '@/shared/utils/getFormattedDateTime'
+import { useFontProgress } from '@/components/SideProfile/apis/sideProfile.query'
+import { getFormattedDateTime } from '@/utils'
 
 const TABLE_HEADERS = ['폰트 이름', '제작 일자', '제작 상황']
 

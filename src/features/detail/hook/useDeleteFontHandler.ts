@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { useDeleteFont } from '@/features/detail/api/detail.mutation'
-import { useParamFontId } from '@/shared/hooks/useParamFontId'
+import { useParamFontId } from '@/hooks'
 
 export const useDeleteFontHandler = () => {
   const fontId = useParamFontId()

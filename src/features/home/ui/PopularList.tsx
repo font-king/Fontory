@@ -1,5 +1,5 @@
 import { EmptyMessage, FontCardWithProfile } from '@/components'
-import { ERROR_MESSAGE_LIST } from '@/shared/config/errorMessageList'
+import { ERROR_MESSAGE_LIST } from '@/config'
 
 import { usePopularList } from '../apis/home.query'
 
