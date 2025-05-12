@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from 'react'
 import { useRef } from 'react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 export const QueryProvider = ({ children }: PropsWithChildren) => {
   const queryClientRef = useRef(
@@ -20,5 +21,10 @@ export const QueryProvider = ({ children }: PropsWithChildren) => {
     }),
   )
 
-  return <QueryClientProvider client={queryClientRef.current}>{children}</QueryClientProvider>
+  return (
+    <QueryClientProvider client={queryClientRef.current}>
+      {children}
+      <ReactQueryDevtools initialIsOpen={true} />
+    </QueryClientProvider>
+  )
 }
