@@ -16,19 +16,23 @@ export const FontCardWithProfile = ({ font }: Props) => {
     <Link
       to={`/detail/${id}`}
       className="flex-column border-light-text rounded-box gap-11 border-[0.1rem] px-5 py-6"
-      style={{ fontFamily }}
     >
       <div className="flex items-center gap-6">
         <ProfileImage size="sm" />
         <div className="flex-column gap-0.5 overflow-hidden">
-          <p className="p2 text-primary overflow-hidden text-ellipsis whitespace-nowrap">
+          <p
+            className="p2 text-primary overflow-hidden text-ellipsis whitespace-nowrap"
+            style={{ fontFamily }}
+          >
             {fontName}
           </p>
           <p className="p5 text-primary">{writerName}</p>
         </div>
       </div>
 
-      <p className="p3 text-grey grow overflow-hidden break-words">{example}</p>
+      <p className="p3 text-grey grow overflow-hidden break-words" style={{ fontFamily }}>
+        {example}
+      </p>
 
       <div className="flex items-center gap-5 self-end">
         <DownloadButton fontId={id} fontName={fontName} isIconType />
