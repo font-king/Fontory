@@ -1,20 +1,24 @@
-import { useModalActions } from '@/app/stores'
+import { useNavigate } from 'react-router-dom'
+
 import { Button } from '@/components'
-import { MODAL_KEYS } from '@/config'
+import { useParamFontId } from '@/hooks'
 
 /**
  * 폰트 수정하기 버튼 컴포넌트
  *
- * - 클릭 시, 수정 모달 열림
+ * - 클릭 시, 수정 페이지로 이동
  */
 
 export const EditFontButton = () => {
-  const { openModal } = useModalActions()
+  const navigate = useNavigate()
+  const fontId = useParamFontId()
 
-  const handleOpenEditModal = () => openModal(MODAL_KEYS.editFont)
+  const handleGoEditPage = () => {
+    navigate(`/edit-font/${fontId}`)
+  }
 
   return (
-    <Button size="lg" onClick={handleOpenEditModal}>
+    <Button size="lg" onClick={handleGoEditPage}>
       수정하기
     </Button>
   )

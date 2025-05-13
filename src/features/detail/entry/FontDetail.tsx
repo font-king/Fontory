@@ -5,7 +5,6 @@ import { DeleteFontButton } from '../ui/DeleteFontButton'
 import { DetailContent } from '../ui/DetailContent'
 import { DetailHeader } from '../ui/DetailHeader'
 import { EditFontButton } from '../ui/EditFontButton'
-import { EditFontModal } from '../ui/EditFontModal'
 import { RecommendList } from '../ui/RecommendList'
 
 const FontDetail = () => {
@@ -24,7 +23,6 @@ const FontDetail = () => {
           <div className="flex items-center justify-end gap-5">
             <EditFontButton />
             <DeleteFontButton />
-            <EditFontModal />
           </div>
         ) : (
           <RecommendList />

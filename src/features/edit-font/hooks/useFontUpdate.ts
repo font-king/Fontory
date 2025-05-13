@@ -1,28 +1,30 @@
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import type { AxiosError } from 'axios'
 
-import { useModalActions } from '@/app/stores'
-import { useEditFont } from '@/features/detail/api/detail.mutation'
-import type { EditForm } from '@/features/detail/type/detail.type'
 import { useParamFontId } from '@/hooks'
 
+import { useEditFont } from '../apis/editFont.mutation'
+import type { EditForm } from '../types/editFont.type'
+
 /**
- * 폰트 수정 요청 및 모달 제어를 담당하는 커스텀 훅
+ * 폰트 수정 요청을 담당하는 커스텀 훅
  */
 
 export const useFontUpdate = () => {
+  const navigate = useNavigate()
   const fontId = useParamFontId()
 
-  const { closeModal } = useModalActions()
   const { mutate: editFont } = useEditFont()
 
   const handleSuccess = () => {
     toast.success('폰트 정보가 수정되었습니다.')
-    closeModal()
+    navigate(`/detail/${fontId}`, { replace: true })
   }
 
   const handleError = (error: AxiosError) => {
-    toast.error('폰트 수정에 실패했습니다.', error.response)
+    toast.error('폰트 수정에 실패했습니다.')
+    console.error(error.response)
   }
 
   const handleEditFont = (formData: EditForm) => {
