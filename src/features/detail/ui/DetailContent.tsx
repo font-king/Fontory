@@ -1,7 +1,10 @@
 import { useFontDetails } from '@/features/detail/stores/fontDetail.store'
+import { useFontLoader } from '@/hooks'
 
 export const DetailContent = () => {
   const font = useFontDetails()
+  const { fontFamily } = useFontLoader(font?.woff, font?.id as number)
+
   if (!font) return null
 
   const { example, bookmarkCount, downloadCount } = font
@@ -27,6 +30,7 @@ export const DetailContent = () => {
             readOnly
             value={example}
             rows={3}
+            style={{ fontFamily }}
             className="p3 text-primary placeholder:text-placeholder w-full resize-none"
           />
         </div>
@@ -39,9 +43,10 @@ export const DetailContent = () => {
         <div className="rounded-box border-light-text border px-10 py-8">
           <textarea
             id="preview"
-            className="p3 text-primary placeholder:text-placeholder w-full resize-none"
             rows={3}
+            style={{ fontFamily }}
             placeholder="원하는 내용을 입력해보세요."
+            className="p3 text-primary placeholder:text-placeholder w-full resize-none"
           />
         </div>
       </div>
