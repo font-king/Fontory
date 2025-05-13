@@ -3,7 +3,3 @@ export type CreateForm = {
   example: string
   file: File
 }
-
-export type ValidateFontNameResponse = {
-  isUnique: boolean
-}

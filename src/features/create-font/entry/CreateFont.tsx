@@ -1,5 +1,6 @@
 import { SectionLayout } from '@/components'
-import { CreateFontForm } from '@/features/create-font/ui'
+
+import { CreateFontForm } from '../ui/CreateFontForm'
 
 const CreateFont = () => {
   return (

@@ -4,11 +4,18 @@ import { toast } from 'react-toastify'
 import { useCreateFont } from '../api/createFont.mutation'
 import type { CreateForm } from '../type/createFont.type'
 
+/**
+ * 폰트 제작 요청을 처리하는 훅
+ *
+ * - 폼 데이터를 FormData로 가공하고 요청 후 성공/실패 처리
+ */
+
 export const useCreateFontForm = () => {
   const navigate = useNavigate()
   const { mutate: createFont } = useCreateFont()
 
-  const handleSubmitForm = (formData: CreateForm) => {
+  // FormData 구성 함수
+  const prepareFormData = (formData: CreateForm) => {
     const sendForm = new FormData()
     sendForm.append(
       'fontCreateDTO',
@@ -18,14 +25,22 @@ export const useCreateFontForm = () => {
       }),
     )
     sendForm.append('file', formData.file)
+    return sendForm
+  }
 
-    createFont(sendForm, {
-      onSuccess: () => {
-        toast.success('폰트 제작 요청이 되었습니다.')
-        navigate('/progress')
-      },
-      onError: () => toast.error('폰트 제작 요청에 실패하였습니다.'),
-    })
+  const handleSuccess = () => {
+    toast.success('폰트 제작 요청이 되었습니다.')
+    navigate('/progress')
+  }
+
+  const handleError = () => {
+    toast.error('폰트 제작 요청에 실패하였습니다.')
+  }
+
+  const handleSubmitForm = (formData: CreateForm) => {
+    const sendForm = prepareFormData(formData)
+
+    createFont(sendForm, { onSuccess: handleSuccess, onError: handleError })
   }
 
   return { handleSubmitForm }
