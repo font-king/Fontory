@@ -8,10 +8,7 @@ export const NAVIGATION_LIST = [
   },
   {
     subject: '작업실',
-    items: [
-      { label: '폰트 제작', iconName: 'pencil', url: '/create-font' },
-      { label: '폰트 합성', iconName: 'plus', url: '/combine-font' },
-    ],
+    items: [{ label: '폰트 제작', iconName: 'pencil', url: '/create-font' }],
   },
   {
     subject: '나만의 공간',
