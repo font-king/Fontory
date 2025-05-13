@@ -23,25 +23,20 @@ export const BarChart = ({ fonts }: Props) => {
         </div>
 
         <div className="border-lightgrey relative z-10 ml-12 flex h-full items-end justify-around border-b">
-          {fonts.map(({ name, bookmarkCount, downloadCount }) => {
-            const heightStyle = (count: number) => {
-              const height = (count / maxValue) * 100
-              return `h-[${height}%]`
-            }
-
-            return (
-              <div key={name} className="flex h-full items-end justify-center gap-3">
-                <div
-                  className={`hover: bg-primary relative w-12 cursor-pointer transition-all ${heightStyle(bookmarkCount)}`}
-                  data-value={`북마크: ${bookmarkCount}`}
-                />
-                <div
-                  className={`stat-bar bg-secondary relative w-12 cursor-pointer transition-all ${heightStyle(downloadCount)}`}
-                  data-value={`다운로드: ${downloadCount}`}
-                />
-              </div>
-            )
-          })}
+          {fonts.map(({ name, bookmarkCount, downloadCount }) => (
+            <div key={name} className="flex h-full items-end justify-center gap-3">
+              <div
+                className={`hover: bg-primary relative w-12 cursor-pointer transition-all`}
+                style={{ height: `${(bookmarkCount / maxValue) * 100}%` }}
+                data-value={`북마크: ${bookmarkCount}`}
+              />
+              <div
+                className={`stat-bar bg-secondary relative w-12 cursor-pointer transition-all`}
+                style={{ height: `${(downloadCount / maxValue) * 100}%` }}
+                data-value={`다운로드: ${downloadCount}`}
+              />
+            </div>
+          ))}
         </div>
       </div>
 

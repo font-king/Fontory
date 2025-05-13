@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { BookmarkButton, DownloadButton, Icon } from '@/components'
+import { useFontLoader } from '@/hooks'
 import type { Font } from '@/types'
 
 type Props = {
@@ -8,12 +9,14 @@ type Props = {
 }
 
 export const FontCardWithoutProfile = ({ font }: Props) => {
-  const { id, name: fontName, example, bookmarked } = font
+  const { id, name: fontName, example, bookmarked, woff } = font
+  const { fontFamily } = useFontLoader(woff, id)
 
   return (
     <Link
       to={`/detail/${id}`}
       className="flex-column border-light-text rounded-box gap-6 border-[0.1rem] p-6"
+      style={{ fontFamily }}
     >
       <div className="flex-between-center overflow-hidden">
         <p className="p2 text-primary overflow-hidden text-ellipsis whitespace-nowrap">
