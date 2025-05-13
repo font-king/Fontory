@@ -3,6 +3,7 @@ import { useFontDetails } from '@/features/detail/stores/fontDetail.store'
 
 export const DetailHeader = () => {
   const font = useFontDetails()
+
   if (!font) return null
 
   const { name, writerName, id, bookmarked } = font
@@ -18,6 +19,7 @@ export const DetailHeader = () => {
           <p className="p2 text-grey">{writerName}</p>
         </div>
       </div>
+
       <div className="flex-column w-60 gap-5">
         <DownloadButton fontId={id} fontName={name} />
         <BookmarkButton fontId={id} isBookmarked={bookmarked} />

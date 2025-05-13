@@ -1,11 +1,12 @@
 import { EmptyMessage, FontCardWithoutProfile } from '@/components'
+import { ERROR_MESSAGE_LIST } from '@/config'
 import { useRecommendList } from '@/features/detail/stores/fontDetail.store'
 
 const ListContent = () => {
   const recommendList = useRecommendList()
 
   if (!recommendList || !recommendList.length) {
-    return <EmptyMessage message="등록된 다른 폰트가 없습니다." />
+    return <EmptyMessage message={ERROR_MESSAGE_LIST.emptyFontList} />
   }
 
   return (

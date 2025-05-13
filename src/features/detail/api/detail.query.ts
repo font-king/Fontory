@@ -9,19 +9,19 @@ export const detailKeys = {
   all: [...MAIN_QUERY_KEY, 'font-detail'] as const,
   detail: (fontId: number) => [...detailKeys.all, fontId],
   recommend: (fontId: number) => [...detailKeys.all, 'recommend', fontId],
-}
+} as const
 
 const endpoints = {
-  getDetail: (fontId: number) => `/fonts/${fontId}`,
+  detail: (fontId: number) => `/fonts/${fontId}`,
   recommend: (fontId: number) => `/fonts/${fontId}/others`,
 } as const
 
-export const useFontDetail = (fontId: number) =>
-  useSuspenseQueries({
+export const useFontDetail = (fontId: number) => {
+  const [detailQuery, recommendQuery] = useSuspenseQueries({
     queries: [
       {
         queryKey: detailKeys.detail(fontId),
-        queryFn: () => apiClient.get<DetailResponse>(endpoints.getDetail(fontId)),
+        queryFn: () => apiClient.get<DetailResponse>(endpoints.detail(fontId)),
       },
       {
         queryKey: detailKeys.recommend(fontId),
@@ -29,3 +29,9 @@ export const useFontDetail = (fontId: number) =>
       },
     ],
   })
+
+  return {
+    detail: detailQuery.data,
+    recommend: recommendQuery.data,
+  }
+}

@@ -3,10 +3,16 @@ import { FormProvider } from 'react-hook-form'
 import { InputGroup, Modal } from '@/components'
 import { MODAL_KEYS } from '@/config'
 import { editAttribute, editSchema } from '@/features/detail/config/schema'
-import { useEditFontHandler } from '@/features/detail/hook/useEditFontHandler'
+import { useFontUpdate } from '@/features/detail/hook/useFontUpdate'
 import { useFontDetails } from '@/features/detail/stores/fontDetail.store'
 import type { EditForm } from '@/features/detail/type/detail.type'
 import { useCustomForm } from '@/hooks'
+
+/**
+ * 폰트 수정 모달
+ *
+ * - 수정 완료 시 토스트 + 모달 닫힘
+ */
 
 export const EditFontModal = () => {
   const font = useFontDetails()
@@ -16,7 +22,7 @@ export const EditFontModal = () => {
   })
 
   const { handleSubmit } = formMethods
-  const { handleEditFont } = useEditFontHandler()
+  const { handleEditFont } = useFontUpdate()
 
   return (
     <Modal id={MODAL_KEYS.editFont} title="내 폰트 수정" onSubmit={handleSubmit(handleEditFont)}>
