@@ -11,6 +11,11 @@ export const fontAttribute = {
     label: '예시 문구',
     input: { placeholder: '예시 문구를 입력해주세요.' },
   },
+  phone: {
+    section: 'phone',
+    label: '전화번호 (선택)',
+    input: { maxLength: 11, placeholder: '문자 알림이 필요하신 경우 전화번호를 입력해주세요.' },
+  },
   file: {
     section: 'file',
   },
@@ -28,4 +33,5 @@ export const fontSchema = z.object({
   file: z
     .custom<File>((val) => val instanceof File, '파일을 업로드해주세요.')
     .refine((file) => file.size > 0, '파일을 업로드해주세요.'),
+  phone: z.string(),
 })

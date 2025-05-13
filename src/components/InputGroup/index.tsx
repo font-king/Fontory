@@ -1,5 +1,6 @@
 import { createContext, type PropsWithChildren, useContext } from 'react'
 
+import { NumberInput } from './Input'
 import { Input, TextArea } from './Input'
 import { Label } from './Label'
 
@@ -20,6 +21,7 @@ type InputGroupType = typeof Container & {
   Input: typeof Input
   TextArea: typeof TextArea
   Label: typeof Label
+  NumberInput: typeof NumberInput
 }
 
 export const InputGroupContext = createContext<SectionContextType | undefined>(undefined)
@@ -45,4 +47,5 @@ export const InputGroup = Object.assign(Container, {
   Input,
   TextArea,
   Label,
+  NumberInput,
 }) as InputGroupType

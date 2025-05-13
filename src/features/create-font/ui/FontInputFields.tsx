@@ -14,7 +14,9 @@ export const FontInputFields = () => {
 
   return (
     <div className="flex-column gap-11">
-      <p className="p4 text-primary">3. 폰트 이름과 예시 문구를 작성해주세요.</p>
+      <p className="p4 text-primary">
+        3. 다음 내용들을 작성해주세요. 폰트 제작이 완료되면 작성하신 번호로 문자를 보내드려요.
+      </p>
       <div className="flex-column gap-11 px-8">
         <div className="flex items-end gap-4">
           <InputGroup section={fontAttribute.name} className="grow">
@@ -27,6 +29,11 @@ export const FontInputFields = () => {
         <InputGroup section={fontAttribute.example}>
           <InputGroup.Label />
           <InputGroup.TextArea />
+        </InputGroup>
+
+        <InputGroup section={fontAttribute.phone}>
+          <InputGroup.Label />
+          <InputGroup.NumberInput />
         </InputGroup>
       </div>
     </div>

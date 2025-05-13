@@ -22,6 +22,7 @@ export const useCreateFontForm = () => {
       JSON.stringify({
         name: formData.name,
         example: formData.example,
+        phone: formData.phone || '',
       }),
     )
     sendForm.append('file', formData.file)

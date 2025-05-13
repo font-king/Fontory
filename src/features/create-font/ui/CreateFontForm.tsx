@@ -26,7 +26,7 @@ export const CreateFontForm = () => {
           <TemplateUpload />
         </div>
 
-        {/* 폰트 이름 / 예시 문구 입력 섹션 */}
+        {/* 폰트 이름 / 예시 문구 / 전화 번호 입력 섹션 */}
         <FontInputFields />
 
         {/* 안내 문구 */}
