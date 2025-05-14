@@ -1,0 +1,56 @@
+import { FormProvider } from 'react-hook-form'
+
+import { InputGroup, SectionLayout } from '@/components'
+import { NicknameDuplicateCheckButton } from '@/components/NicknameDuplicateCheckButton/NicknameDuplicateCheckButton'
+import {
+  useVerificationMessage,
+  useVerificationStatus,
+} from '@/components/NicknameDuplicateCheckButton/nicknameVerification.store'
+import { useCustomForm } from '@/hooks'
+
+import type { SignupFormType } from '../config/signup.schema'
+import { signupAttribute, signupSchema } from '../config/signup.schema'
+import { SignupButton } from '../ui/SignupButton'
+import { TermsAgreement } from '../ui/TermsAgreement'
+
+const SignupPage = () => {
+  const { isVerified } = useVerificationStatus()
+  const successMessage = useVerificationMessage()
+  const formMethods = useCustomForm<SignupFormType>(signupSchema)
+
+  const { handleSubmit } = formMethods
+
+  const onSubmit = (formData: SignupFormType) => {
+    if (!isVerified) {
+      formMethods.setError('nickname', { message: '닉네임 중복 검사를 완료해주세요.' })
+      return
+    }
+
+    console.log('회원가입 성공!', formData)
+  }
+
+  return (
+    <SectionLayout title="회원가입">
+      <FormProvider {...formMethods}>
+        <form onSubmit={handleSubmit(onSubmit)} className="flex-column gap-16">
+          <div className="flex items-end gap-4">
+            <InputGroup section={signupAttribute.nickname} className="grow">
+              <InputGroup.Label
+                errorMessage={formMethods.formState.errors.nickname?.message}
+                successMessage={successMessage}
+              />
+              <InputGroup.Input />
+            </InputGroup>
+            <NicknameDuplicateCheckButton />
+          </div>
+
+          <TermsAgreement />
+
+          <SignupButton />
+        </form>
+      </FormProvider>
+    </SectionLayout>
+  )
+}
+
+export default SignupPage

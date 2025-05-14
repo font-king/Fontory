@@ -2,6 +2,7 @@ import { lazy } from 'react'
 import type { RouteObject } from 'react-router-dom'
 
 const Home = lazy(() => import('@/features/home/entry/Home'))
+const Signup = lazy(() => import('@/features/sign-up/entry/SignupPage'))
 const CreateFont = lazy(() => import('@/features/create-font/entry/CreateFont'))
 const EditFont = lazy(() => import('@/features/edit-font/entry/EditFontPage'))
 const Explore = lazy(() => import('@/features/explore/entry/Explore'))
@@ -13,6 +14,7 @@ const MyCustomFont = lazy(() => import('@/features/my-font/entry/MyCustomFont'))
 
 export const routes: RouteObject[] = [
   { path: '/', element: <Home /> },
+  { path: '/sign-up', element: <Signup /> },
   { path: '/create-font', element: <CreateFont /> },
   { path: '/edit-font/:id', element: <EditFont /> },
   { path: '/explore', element: <Explore /> },

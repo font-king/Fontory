@@ -8,7 +8,7 @@ export const SideProfile = () => {
 
   const isLoggedIn = false
 
-  if (isLoggedIn) return <LoginCard />
+  if (!isLoggedIn) return <LoginCard />
 
   return (
     <div className="flex-column gap-10">
