@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+import { ROUTES } from '@/app/router'
 import { BookmarkButton, DownloadButton, ProfileImage } from '@/components'
 import { useFontLoader } from '@/hooks'
 import type { FontType } from '@/types'
@@ -14,7 +15,7 @@ export const FontCardWithProfile = ({ font }: Props) => {
 
   return (
     <Link
-      to={`/detail/${id}`}
+      to={ROUTES.DETAIL(id)}
       className="flex-column border-light-text rounded-box gap-11 border-[0.1rem] px-5 py-6"
     >
       <div className="flex items-center gap-6">

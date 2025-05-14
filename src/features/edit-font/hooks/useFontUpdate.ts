@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import type { AxiosError } from 'axios'
 
+import { ROUTES } from '@/app/router'
 import { useParamFontId } from '@/hooks'
 
 import { useEditFont } from '../apis/editFont.mutation'
@@ -19,7 +20,7 @@ export const useFontUpdate = () => {
 
   const handleSuccess = () => {
     toast.success('폰트 정보가 수정되었습니다.')
-    navigate(`/detail/${fontId}`, { replace: true })
+    navigate(ROUTES.DETAIL(fontId), { replace: true })
   }
 
   const handleError = (error: AxiosError) => {

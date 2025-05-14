@@ -1,3 +1,4 @@
+import { ROUTES } from '@/app/router'
 import { SectionLayout } from '@/components'
 import { PROGRESS_STATUS } from '@/config'
 
@@ -11,7 +12,7 @@ export const ProgressCard = () => {
   const progressList = data.slice(0, 5)
 
   return (
-    <SectionLayout title="제작 현황" moreViewTo="/progress">
+    <SectionLayout title="제작 현황" moreViewTo={ROUTES.PROGRESS}>
       <div className="flex-column gap-4">
         {progressList.map(({ id, name, status }) => {
           const isProgress = status === PROGRESS_STATUS.progress

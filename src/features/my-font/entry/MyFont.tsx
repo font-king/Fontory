@@ -1,3 +1,4 @@
+import { ROUTES } from '@/app/router'
 import { SectionLayout } from '@/components'
 import { useFontRanking } from '@/features/my-font/api/myFont.query'
 import { FontRankingChart } from '@/features/my-font/ui/FontRakingChart'
@@ -15,7 +16,7 @@ const MyFont = () => {
         <FontRankingChart fonts={fonts} />
       </SectionLayout>
 
-      <SectionLayout title="내가 제작한 폰트" moreViewTo="/my-font/custom-font">
+      <SectionLayout title="내가 제작한 폰트" moreViewTo={ROUTES.MY_CUSTOM_FONT}>
         <FontRankingList fonts={fonts} />
       </SectionLayout>
     </div>

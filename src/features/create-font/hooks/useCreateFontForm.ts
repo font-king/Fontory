@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
+import { ROUTES } from '@/app/router'
+
 import { useCreateFont } from '../api/createFont.mutation'
 import type { CreateForm } from '../type/createFont.type'
 
@@ -31,7 +33,7 @@ export const useCreateFontForm = () => {
 
   const handleSuccess = () => {
     toast.success('폰트 제작 요청이 되었습니다.')
-    navigate('/progress')
+    navigate(ROUTES.PROGRESS)
   }
 
   const handleError = () => {

@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import type { AxiosError } from 'axios'
 
+import { ROUTES } from '@/app/router'
 import { useDeleteFont } from '@/features/detail/api/detail.mutation'
 import { useParamFontId } from '@/hooks'
 
@@ -13,7 +14,7 @@ export const useFontDeletion = () => {
 
   const handleSuccess = () => {
     toast.success('폰트가 삭제되었습니다.')
-    navigate('/my-font', { replace: true })
+    navigate(ROUTES.MY_FONT, { replace: true })
   }
 
   const handleError = (error: AxiosError) => {

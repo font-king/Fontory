@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
+import { ROUTES } from '@/app/router'
 import { Button } from '@/components'
 import { useParamFontId } from '@/hooks'
 
@@ -14,7 +15,7 @@ export const EditFontButton = () => {
   const fontId = useParamFontId()
 
   const handleGoEditPage = () => {
-    navigate(`/edit-font/${fontId}`)
+    navigate(ROUTES.EDIT_FONT(fontId))
   }
 
   return (
