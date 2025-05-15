@@ -6,7 +6,7 @@ export const LoginCard = () => {
   return (
     <SectionLayout title="로그인">
       <div className="flex-column gap-6">
-        <Link to={import.meta.env.VITE_PUBLIC_AUTH_GOOGLE}>
+        <Link to={import.meta.env.VITE_PUBLIC_GO}>
           <button className="flex-center shadow-google w-full cursor-pointer rounded-2xl">
             <Icon name={'google'} width="18.1rem" height="5.4rem" />
           </button>
