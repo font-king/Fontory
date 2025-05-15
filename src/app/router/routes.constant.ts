@@ -1,6 +1,6 @@
 export const ROUTES = {
   HOME: '/',
-  SIGN_UP: '/sign-up',
+  SIGN_UP: '/signup',
   CREATE_FONT: '/create-font',
   EDIT_FONT: (id: string | number = ':id') => `/edit-font/${id}`,
   EXPLORE: '/explore',
