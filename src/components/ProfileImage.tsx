@@ -15,13 +15,15 @@ const PROFILE_SIZE = {
 export const ProfileImage = ({ size, src }: Props) => {
   const { size: iconSize, elementSize, padding } = PROFILE_SIZE[size]
 
+  const isDefaultImage = !src || src === import.meta.env.VITE_PUBLIC_DEFAULT_PROFILE_URL
+
   return (
     <div className="flex-center border-light-text rounded-full border-[0.1rem] p-1">
       <div className="flex-center inline-block overflow-hidden rounded-full">
-        {src ? (
-          <img src={src} className={elementSize} alt="사용자 프로필 이미지" />
-        ) : (
+        {isDefaultImage ? (
           <Icon name="profile" size={iconSize} className={padding} />
+        ) : (
+          <img src={src} className={elementSize} alt="사용자 프로필 이미지" />
         )}
       </div>
     </div>

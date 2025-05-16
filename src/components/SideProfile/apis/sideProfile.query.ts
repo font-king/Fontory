@@ -21,6 +21,7 @@ export const useAuthInfo = () =>
   useQuery<User, AxiosError>({
     queryKey: sideProfileKeys.user(),
     queryFn: () => publicApiClient.get(endpoints.user()),
+    retry: false,
   })
 
 export const useFontProgress = () =>
