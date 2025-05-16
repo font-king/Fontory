@@ -16,7 +16,7 @@ export const useSignupForm = () => {
       'req',
       JSON.stringify({
         nickname: formData.nickname,
-        gender: 'male',
+        gender: 'MALE',
         birth: '2025-05-16',
         terms: formData.terms,
       }),
