@@ -1,7 +1,7 @@
 import { useSuspenseQuery } from '@tanstack/react-query'
 import type { AxiosError } from 'axios'
 
-import { apiClient } from '@/app/api'
+import { apiClient, publicApiClient } from '@/app/api'
 import { MAIN_QUERY_KEY } from '@/app/api/globalQueryKey'
 import type { User } from '@/app/stores'
 import type { FontProgress } from '@/features/my-font/type/myFont.type'
@@ -20,7 +20,7 @@ export const endpoints = {
 export const useAuthInfo = () =>
   useSuspenseQuery<User, AxiosError>({
     queryKey: sideProfileKeys.user(),
-    queryFn: () => apiClient.get(endpoints.user()),
+    queryFn: () => publicApiClient.get(endpoints.user()),
   })
 
 export const useFontProgress = () =>
