@@ -14,7 +14,7 @@ export const LoginCard = () => {
     if (user) login(user)
   }, [login, user])
 
-  if (!user) return null
+  if (user) return null
 
   return (
     <SectionLayout title="로그인">
