@@ -26,7 +26,7 @@ export const signupSchema = z.object({
 })
 
 export type SignupFormType = z.infer<typeof signupSchema> & {
-  file?: File | null
+  file: File | null
   checkedTerms?: {
     service: boolean
     privacy: boolean
