@@ -23,6 +23,11 @@ export const signupSchema = z.object({
   terms: z.literal(true, {
     errorMap: () => ({ message: '모든 약관에 동의해야 회원가입이 가능합니다.' }),
   }),
+  file: z
+    .any()
+    .optional()
+    .nullable()
+    .refine((file) => !file || (file instanceof File && file.size > 0)),
 })
 
 export type SignupFormType = z.infer<typeof signupSchema> & {

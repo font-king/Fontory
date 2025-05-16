@@ -7,7 +7,7 @@ import { useCustomForm } from '@/hooks'
 
 import type { SignupFormType } from '../config/signup.schema'
 import { signupAttribute, signupSchema } from '../config/signup.schema'
-import { useSignupForm } from '../hooks/useCreateFontForm'
+import { useSignupForm } from '../hooks/useSignupForm'
 import { ProfileImageSection } from '../ui/ProfileImageSection'
 import { SignupButton } from '../ui/SignupButton'
 import { TermsAgreement } from '../ui/TermsAgreement'
