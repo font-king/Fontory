@@ -3,16 +3,25 @@ import type { AxiosError } from 'axios'
 
 import { apiClient } from '@/app/api'
 import { MAIN_QUERY_KEY } from '@/app/api/globalQueryKey'
+import type { User } from '@/app/stores'
 import type { FontProgress } from '@/features/my-font/type/myFont.type'
 
 export const sideProfileKeys = {
   all: [...MAIN_QUERY_KEY, 'side-profile'] as const,
+  user: () => [...sideProfileKeys.all, 'user'] as const,
   progress: () => [...sideProfileKeys.all, 'progress'] as const,
 }
 
 export const endpoints = {
+  user: () => '/member/me',
   progress: () => '/fonts/progress',
 }
+
+export const useAuthInfo = () =>
+  useSuspenseQuery<User, AxiosError>({
+    queryKey: sideProfileKeys.user(),
+    queryFn: () => apiClient.get(endpoints.user()),
+  })
 
 export const useFontProgress = () =>
   useSuspenseQuery<FontProgress, AxiosError>({

@@ -1,14 +1,13 @@
+import { useUserState } from '@/app/stores'
+
 import { LoginCard } from './LoginCard'
 import { ProfileCard } from './ProfileCard'
 import { ProgressCard } from './ProgressCard'
 
 export const SideProfile = () => {
-  // 로그인 여부에 따른 렌더링
-  // const isLoggedIn =
+  const user = useUserState()
 
-  const isLoggedIn = false
-
-  if (!isLoggedIn) return <LoginCard />
+  if (!user) return <LoginCard />
 
   return (
     <div className="flex-column gap-10">

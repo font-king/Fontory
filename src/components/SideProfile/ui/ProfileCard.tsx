@@ -1,16 +1,23 @@
+import { useUserState } from '@/app/stores'
 import { ProfileImage, SectionLayout } from '@/components'
+import { useCustomList } from '@/features/my-font/api/myFont.query'
 
 export const ProfileCard = () => {
-  const fontName = '고로케'
-  const count = 2
+  const user = useUserState()
+  const { data: myFontData } = useCustomList('')
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const totalFonts = (myFontData.pages[0] as any).totalElements
+
+  if (!user) return
 
   return (
     <SectionLayout>
       <div className="flex-between-center px-4">
-        <ProfileImage size="md" />
+        <ProfileImage size="md" src={user.profileImageUrl} />
         <div className="flex-column items-center gap-3">
-          <p className="p3 text-primary">{fontName} 님</p>
-          <p className="p5 text-grey">제작 폰트 수: {count} 개</p>
+          <p className="p3 text-primary">{user.nickname} 님</p>
+          <p className="p5 text-grey">제작 폰트 수: {totalFonts} 개</p>
         </div>
       </div>
 

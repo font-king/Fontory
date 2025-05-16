@@ -1,22 +1,32 @@
 import { create } from 'zustand'
 
+export type User = {
+  memberId: 0
+  nickname: string
+  gender: string
+  birth: string
+  terms: boolean
+  profileImageUrl: string
+}
+
 /**
  * @todo 로직에 맞게 유저 수정해야함
  */
 
-type UserState = {
-  user: null | { id: string; name: string }
-}
-
-type UserActions = {
-  login: (userData: { id: string; name: string }) => void
+type Actions = {
+  login: (user: User) => void
   logout: () => void
 }
 
-export const useUserStore = create<UserState & { actions: UserActions }>((set) => ({
+type UserState = {
+  user: User | null
+  actions: Actions
+}
+
+export const useUserStore = create<UserState>((set) => ({
   user: null,
   actions: {
-    login: (userData) => set({ user: userData }),
+    login: (user) => set({ user }),
     logout: () => set({ user: null }),
   },
 }))
