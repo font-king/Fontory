@@ -1,4 +1,4 @@
-import { useSuspenseQuery } from '@tanstack/react-query'
+import { useQuery, useSuspenseQuery } from '@tanstack/react-query'
 import type { AxiosError } from 'axios'
 
 import { apiClient, publicApiClient } from '@/app/api'
@@ -18,7 +18,7 @@ export const endpoints = {
 }
 
 export const useAuthInfo = () =>
-  useSuspenseQuery<User, AxiosError>({
+  useQuery<User, AxiosError>({
     queryKey: sideProfileKeys.user(),
     queryFn: () => publicApiClient.get(endpoints.user()),
   })
