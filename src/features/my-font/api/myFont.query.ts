@@ -1,7 +1,7 @@
 import { useSuspenseInfiniteQuery, useSuspenseQuery } from '@tanstack/react-query'
 import type { AxiosError } from 'axios'
 
-import { apiClient, publicApiClient } from '@/app/api'
+import { apiClient } from '@/app/api'
 import { MAIN_QUERY_KEY } from '@/app/api/globalQueryKey'
 import type { FontListResponse } from '@/types'
 
@@ -23,7 +23,7 @@ export const useCustomList = (keyword: string) =>
   useSuspenseInfiniteQuery<FontListResponse, AxiosError>({
     queryKey: myFontKeys.customList(keyword),
     queryFn: ({ pageParam = 0 }) =>
-      publicApiClient.get(endpoints.customList({ page: pageParam as number, keyword })),
+      apiClient.get(endpoints.customList({ page: pageParam as number, keyword })),
     getNextPageParam: (lastPage, allPages) => (lastPage.last ? undefined : allPages.length),
     initialPageParam: 0,
   })
