@@ -10,6 +10,7 @@ import { useCustomForm } from '@/hooks'
 
 import type { SignupFormType } from '../config/signup.schema'
 import { signupAttribute, signupSchema } from '../config/signup.schema'
+import { ProfileImageSection } from '../ui/ProfileImageSection'
 import { SignupButton } from '../ui/SignupButton'
 import { TermsAgreement } from '../ui/TermsAgreement'
 
@@ -33,6 +34,8 @@ const SignupPage = () => {
     <SectionLayout title="회원가입">
       <FormProvider {...formMethods}>
         <form onSubmit={handleSubmit(onSubmit)} className="flex-column gap-16">
+          <ProfileImageSection />
+
           <div className="flex items-end gap-4">
             <InputGroup section={signupAttribute.nickname} className="grow">
               <InputGroup.Label
